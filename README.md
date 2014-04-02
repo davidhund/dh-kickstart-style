@@ -126,7 +126,7 @@ git submodule add git@github.com:davidhund/dh-kickstart-style.git scss/dh-kickst
 ## Using the `.scss` files
 
 You could simply edit all the files (although—using Git—you'd get conflicts when pulling in updates).
-Better is to `@import "dh-kickstart-style/scss/style";` in your `app.scss` or do the reverse and add all your *project specific* styles in the `dh-kickstart-style/scss/site/some-page.scss` or `dh-kickstart-style/scss/theme/some-theme.scss`.
+Better is to `@import "dh-kickstart-style/style";` in your `app.scss` or do the reverse and add all your *project specific* styles in the `dh-kickstart-style/site/some-page.scss` or `dh-kickstart-style/theme/some-theme.scss`.
 
 
 ## Thanks!
