@@ -12,7 +12,7 @@ Most 'frameworks' use conventions I'm not 100% happy with, seem bloated, etc. So
 
 * **Modular**: uncomment in `/style.scss` what you don't need
 * **Modern**: not much 'support' for oldIE and other older browsers
-  * see `helpers/_settings.scss` though…
+  * see `helpers/_settings.scss` though!
 * **Opinionated**: see the **Notes** below
 
 ### Overview
@@ -26,7 +26,7 @@ Most 'frameworks' use conventions I'm not 100% happy with, seem bloated, etc. So
 - `rem()` mixin
   - Don't need a `px`-fallback for `rem`? Change `$rem-px` in `helpers/_settings.scss`
   -  (..and update `mixins/_rem.scss`)
-- Not for everyone: just see what's helpful…
+- Not for everyone: just see what's helpful!
 
 ### Naming conventions
 
@@ -101,7 +101,7 @@ Given the following project structure:
 ````
 | my-project/
 |-- scss/
-  |-- dh-kickstart-style/ # ‹- Should go here…
+  |-- dh-kickstart-style/ # ‹- Should go here
   '-- app.scss
 |-- css/
   '-- app.min.css
@@ -137,4 +137,3 @@ Better is to `@import "dh-kickstart-style/scss/style";` in your `app.scss` or do
 * [@necolas](http://twitter.com/necolas). His [normalize.css](http://necolas.github.io/normalize.css/) is the *only* 'reset' you should be using
 * [HTML5 Boilerplate](http://h5bp.com).  The world's best webdevelopers trying to work out the best defaults? I stole the *hell* out of all the goodies in there :)
 * [@snook](http://twitter.com/snook). His [SMACSS](http://smacss.com) OOCSS approach is the one I (sorta) use, combined with a BEM classname convention.
-
