@@ -1,0 +1,90 @@
+// ============================================================================
+//   MEDIA component
+//   --------------------------------------------------------------------------
+//   $name:        /src/scss/components/_media.scss
+//   $author:      David Hund
+//
+//   $description: Generic MEDIA component.
+//   http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+//
+//   $contents:
+//                 1  Media Object
+//                 2  Media Lists
+//                 3  Hyperlink Media Objects
+//
+// Use with a lot(!) of 'block' objects containing images:
+// - Twitter conversations
+// - Profile blocks
+// - etc
+
+// HTML:
+// <div class="media">
+//  <a href="#" class="media__img"><!-- Could be other element! -->
+//   <img src="http://lorempixel.com/80/80/animals/" alt="" />
+//  </a>
+//  <div class="media__body">
+//   <p>Some content: could be almost anything</p>
+//  </div>
+// </div>
+//
+// ============================================================================
+
+/* = Media Object
+ --------------------------------------------------------------------------- */
+.media,
+.media__body,
+.media-list, 
+.media-list > li {
+	display: block;
+	// Generate new Block Formatting Context (plus clears floats)
+	// So that e.g. the .media__body does not wrap
+	// the .media__img.
+	// http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+	overflow: hidden;   // or 'auto' => TEST!
+	_overflow: visible; // IE f1x0rz
+	*zoom: 1;           // hasLayout for IE
+}
+
+.media,
+.media-list,
+.media-list > li {
+	@include rem(margin-bottom,$base-line);
+}
+
+.media__img, %media__img {
+	float: left; 
+	@include rem(margin-right,$gutter);
+	// position: relative;  // to allow abs pos media__img__icon
+	// top: .2em;           // to vertically align with header
+	min-width: 48px;     // to add space (thumb) even when img is missing
+	max-width: 33%;      // Media Images should never be larger than/Equal to content
+	img { display: block; }
+}
+.media__img--reversed {
+	@if $modifiers-extend == true { @extend %media__img; }
+	float: right; 
+	margin-right: 0;
+	@include rem(margin-left,$gutter);
+}
+
+/* Align with top of image. */
+.media__body :first-child,
+.media-list > li :first-child {
+	margin-top: 0;
+}
+
+/* = Media List
+ --------------------------------------------------------------------------- */
+.media-list { 
+	list-style: none;
+	margin-left: 0; 
+	padding-left: 0; 
+}
+
+/* = Hyperlink Media Objects
+ --------------------------------------------------------------------------- */
+a.media {
+	color: $cl-text;
+	font-weight: normal;
+	text-decoration: none;
+}

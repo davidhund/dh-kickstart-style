@@ -1,0 +1,51 @@
+// ============================================================================
+// FUNCTIONS
+// ----------------------------------------------------------------------------
+
+// Modular Scale stuff from https://github.com/Team-Sass/modular-scale/
+$base: 1em !default;
+
+$fibonacci: (1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144);
+
+// parseInt()
+@function parseInt($n) {
+	@return $n / ($n * 0 + 1);
+}
+
+// // pow()
+// // from: http://hugogiraudel.com/2013/10/17/sass-random/
+// @function pow($val, $pow) {
+// 	$res: 1;
+// 	@while($pow > 0) {
+// 		$res: $res * $val;
+// 		$pow: $pow - 1;
+// 	}
+// 	@return $res;
+// }
+
+// // goldenRatioRemainder()
+// // TODO: NOT finished, ...
+// @function goldenRatioModularScale($value, $fBase: $base, $ratio: $phi) {
+// 	@return pow($ratio, $value) * $fBase;
+// }
+
+@function goldenRatio($value) {
+	@return $value / $phi;
+}
+
+@function goldenRatio-percent($value) {
+	@return ($value / $phi)*1%;
+}
+
+@function goldenRatio-list($value) {
+	$greatest: goldenRatio($value);
+	$smallest: $value - $greatest;
+	@return ($greatest, $smallest);
+}
+
+@function goldenRatio-large($value) {
+	@return nth(goldenRatio-list($value),1);
+}
+@function goldenRatio-small($value) {
+	@return nth(goldenRatio-list($value),2);
+}

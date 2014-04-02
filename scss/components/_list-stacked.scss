@@ -1,0 +1,24 @@
+// ============================================================================
+//   LIST-STACKED component
+//   --------------------------------------------------------------------------
+//   $name:        /src/scss/components/_list-stacked.scss
+//   $author:      David Hund
+//
+//   $description: Generic list with blok-level items.
+//
+//   $contents:
+//                 1  list-stacked Object
+// ============================================================================
+
+/* = Linklist Object
+ --------------------------------------------------------------------------- */
+.list-stacked,
+%list-stacked {
+	@extend %list-bare;
+	li {
+		@extend %ridge;
+		@include rem(padding-top, $pd-default/2);
+		@include rem(padding-left, $pd-default);
+		@include rem(padding-right, $pd-default);
+	}
+}

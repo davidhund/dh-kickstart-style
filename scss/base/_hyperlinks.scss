@@ -1,0 +1,29 @@
+// ============================================================================
+//   HYPERLINKS
+//   --------------------------------------------------------------------------
+//   $name:        /src/scss/base/_hyperlinks.scss
+//   $author:      David Hund
+//
+//   $description: Base Sass Styles for Hyperlinks.
+//
+//   $contents:
+//                 1  Plain Hyperlink
+//                 2  ...
+//                 3  ...
+// ============================================================================
+
+/* = Plain Hyperlinks
+ --------------------------------------------------------------------------- */
+a {
+	//outline: none;
+	color: $cl-link;
+	&:hover, &:focus, &:active {
+		color: $cl-link-hover;
+	}
+	// Hyperlinks in headings: 
+	// .. we almost never need link-styles on 'em
+	h1 &, h2 &, h3 &, h4 &, h5 &, h6 & { 
+		text-decoration: none;
+		color: inherit; 
+	}
+}

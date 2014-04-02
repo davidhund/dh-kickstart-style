@@ -1,0 +1,60 @@
+// ============================================================================
+//   MESSAGE component
+//   --------------------------------------------------------------------------
+//   $name:        /src/scss/components/_message.scss
+//   $author:      David Hund
+//
+//   $description: Message (warning|error|success)
+//   $thanks:      http://www.sitepoint.com/sass-component-10-minutes/
+//
+//   $depends:     Extends %boxed !
+//
+//   $contents:
+//                 1  %message-types variables
+//                 2  %message placeholder
+//                 3  message() mixin
+// ============================================================================
+
+// Message Types
+$message-types: (
+  (default  lighten(#3a87ad, 10%))
+  (info     #3a87ad)
+  (error    #b94a48)
+  (valid    #468847)
+  (warning  #c09853)
+) !default;
+ 
+// Mixin for dynamic values
+@mixin message($color) {
+	color: $color;
+	background: lighten($color, 38%);
+	border-color: lighten($color, 20%);
+}
+
+/* = Message Boxes
+ --------------------------------------------------------------------------- */
+// Add default styles to all .message-- types
+// NOTE: we don't because we have the convention to
+// .. use _both_ classes: .message and .message--foo
+// [class~="message--"] {
+// 	@extend %boxed;
+// }
+.message, %message {
+	@extend %boxed;
+}
+// Loop doing all the message types
+@each $message-type in $message-types {
+	$type:  nth($message-type, 1);
+	$color: nth($message-type, 2);
+
+	@if $type == 'default' {
+		.message {
+			@include message($color);
+		}
+	} @else {
+		.message--#{$type} {
+			@if $modifiers-extend == true { @extend %message; }
+			@include message($color);
+		}
+	}
+}

@@ -1,0 +1,23 @@
+// ============================================================================
+//   LINKLIST component
+//   --------------------------------------------------------------------------
+//   $name:        /src/scss/components/_linklist.scss
+//   $author:      David Hund
+//
+//   $description: Generic list with blok-level links.
+//
+//   $contents:
+//                 1  Linklist Object
+// ============================================================================
+
+/* = Linklist Object
+ --------------------------------------------------------------------------- */
+.linklist {
+	@extend %list-bare;
+	li > a {
+		@extend %ridge;
+		@include rem(padding-top, $pd-default/2);
+		@include rem(padding-left, $pd-default);
+		@include rem(padding-right, $pd-default);
+	}
+}

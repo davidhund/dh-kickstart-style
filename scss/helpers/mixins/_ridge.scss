@@ -1,0 +1,19 @@
+// ============================================================================
+// RIDGE (simple bottom border on elements)
+// $top: put ridge on top?
+// ----------------------------------------------------------------------------
+@mixin ridge($dir) {
+	display: block;
+	@if $dir == "top" {
+		// Put ridge at top
+		padding-bottom: 0;
+		@include rem(padding-top, $pd-default/2);
+		border-bottom: 0;
+		border-top: 1px solid $cl-border;
+		box-shadow: 0 -1px 0 $cl-white;
+	} @else {
+		@include rem(padding-bottom, $pd-default/2);
+		border-bottom: 1px solid $cl-border;
+		box-shadow: 0 1px 0 $cl-white;
+	}
+}

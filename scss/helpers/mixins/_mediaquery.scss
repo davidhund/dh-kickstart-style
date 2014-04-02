@@ -1,0 +1,48 @@
+// ============================================================================
+//   MEDIA QUERY MIXIN
+//   --------------------------------------------------------------------------
+//   $name:        /src/scss/mixins/_mediaquery.scss
+//   $author:      David Hund
+//
+//   $description: Media Query Mixin.
+//   				 This mixin allows easy _inline_ mediaqueries
+//   				 It's opinionated:
+//   				 - We assume mobile-first, min-width, MQ's
+//   				 - We use EM-based widths (calc with 1em == 16px)
+//   				 - We only use 3 breakpoints a.t.m: `narrow`, `medium`, `wide`
+//   				 But one could easily extend this of course....
+//
+//   $contents:
+//                 1  mediaquery() mixin (3)
+// ----------------------------------------------------------------------------
+
+// Thanks: http://css-tricks.com/conditional-media-query-mixins/#comment-620172
+// Cleaning up inline MQ's: https://www.npmjs.org/package/grunt-combine-media-queries
+
+// = VARS: Min-Width values
+$oldIE: false !default;
+
+$mq-narrow: 30em !default; // ~ 480px
+$mq-medium: 48em !default; // ~ 768px
+$mq-wide:   64em !default; // ~ 1024px
+
+$breakpoints: narrow $mq-narrow, medium $mq-medium, wide $mq-wide !default;
+
+@mixin MQ($bp) {
+	@if $oldIE {
+		// TODO: test exactly what we need to give oldIE
+		@if ($bp == narrow) or ($bp == medium) or ($bp == wide) {
+			@content;
+		}
+	}
+	@else {
+		@each $breakpoint in $breakpoints {
+			@if $bp == nth($breakpoint, 1) {
+				@media (min-width: nth($breakpoint, 2)) {
+					@content;
+				}
+			}
+		}
+	}
+}
+

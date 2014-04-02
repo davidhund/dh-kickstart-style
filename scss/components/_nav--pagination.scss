@@ -1,0 +1,51 @@
+// ============================================================================
+//   NAV PAGINATION modifier component
+//   --------------------------------------------------------------------------
+//   $name:        /src/scss/components/_nav--pagination.scss
+//   $author:      David Hund
+//
+//   $description: Depends on NAV component.
+//
+//   $example html:
+//					<ul class="nav nav--pagination">
+//					   <li class="nav--pagination__first"><a href=#>First</a></li>
+//					   <li><a href=#>1</a></li>
+//					   <li><a href=#>2</a></li>
+//					   <li class="is-active"><a href=#>3</a></li>
+//					   <li><a href=#>4</a></li>
+//					   <li><a href=#>5</a></li>
+//					   <li class="nav--pagination__last"><a href=#>Last</a></li>
+//					</ul>
+//
+//   $contents:
+//                 1  Nav pagination
+// ============================================================================
+
+.nav--pagination {
+	@if $modifiers-extend == true { @extend %nav; }
+	text-align: center;
+	a {
+		background-color: $cl-link;
+		color: $cl-white;
+		text-decoration: none;
+		padding: $pd-default/2 $pd-default;
+		@if $bd-radius != 0 { border-radius: $bd-radius; }
+		&.is-active, &:hover, &:focus, &:active {
+			background-color: $cl-link-hover;
+		}
+	}
+	.is-active a {
+		background-color: $cl-link-hover;
+	}
+}
+.nav--pagination__first a,
+.nav--pagination__last a {
+	background-color: transparent !important;
+	color: $cl-link;
+	&:hover, &:focus, &:active {
+		color: $cl-link-hover;
+	}
+}
+.nav--pagination__first a:before { content:"\00AB" "\00A0"; }
+.nav--pagination__last a:after { content:"\00A0" "\00BB"; }
+

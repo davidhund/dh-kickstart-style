@@ -1,0 +1,60 @@
+// ============================================================================
+//   UTILITIES
+//   --------------------------------------------------------------------------
+//   $name:        /src/scss/utils/_utils.scss
+//   $author:      David Hund
+//
+//   $description: Helper classes that do not qualify as Components
+//           - These most often make use of Mixins defined earlier
+//           - They can be used stand-alone as classes or
+//             @extend-ed by use of a %placeholder
+//
+//           e.g. 
+//           Used as class: <i class="extra">extra</i>
+//
+//           Extended:      .foo { @extend %extra; }
+//
+//   $contents:
+//                 1  Clearfix (Thierry Koblentz)
+//                 2  Hiding text (accessibly)
+//                 3  Word-Wrap Hyphenation
+//                 4  Bare, unstyled, lists without bullets
+//                 5  Ridged blocks (border)
+//                 6  Multi Column text
+// ============================================================================
+
+/* = Clearfix: clearing floats
+     [Thierry Koblentz](http://www.css-101.org/articles/clearfix/latest-new-clearfix-so-far.php)
+ --------------------------------------------------------------------------- */
+.clearfix, %clearfix { @include clearfix; }
+
+/* = Hiding text (accessibly)
+ --------------------------------------------------------------------------- */
+.hide-text, %hide-text { @include hide-text; }
+.extra, %extra { @include extra; }
+
+/* = Hyphenation - Word Wrapping
+     http://kenneth.io/blog/2012/03/04/word-wrapping-hypernation-using-css/
+ --------------------------------------------------------------------------- */
+.word-wrap, %word-wrap { @include word-wrap; }
+
+/* = Bare List
+     https://github.com/inuitcss/objects.bare-list/blob/master/_objects.bare-list.scss
+ --------------------------------------------------------------------------- */
+.list-bare, %list-bare { @include list-bare; }
+
+/* = Ridged
+     Add a simple 'recessed-look' line at the bottom
+ --------------------------------------------------------------------------- */
+.ridge, %ridge { @include ridge(bottom); }
+.ridge--top { @include ridge(top); }
+
+/* = Multi Column text
+     Use the generic .text-columns class 
+     .. in addition to a modifier, e.g. text-columns--two
+ --------------------------------------------------------------------------- */
+.text-columns, %text-columns { column-gap: $gutter; }
+.text-columns--two, %text-columns--two { column-count: 2; }
+.text-columns--three, %text-columns--three { column-count: 3; }
+.text-columns--four, %text-columns--four { column-count: 4; }
+

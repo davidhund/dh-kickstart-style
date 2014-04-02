@@ -1,0 +1,81 @@
+// ============================================================================
+//   NAV TABS modifier component
+//   --------------------------------------------------------------------------
+//   $name:        /src/scss/components/_nav--tabs.scss
+//   $author:      David Hund
+//
+//   $description: Depends on NAV component.
+//
+//   $example html:
+//					<ul class="nav nav--tabs">
+//					   <li><a href=#>Tab</a></li>
+//					   <li><a href=#>Tabby</a></li>
+//					   <li><a href=#>Tabbster</a></li>
+//					</ul>
+//
+//   $contents:
+//                 1  Nav Tabs
+// ============================================================================
+
+// Container
+.tabs {}
+.tabs__content {}
+
+// Style as tabs. See note re: functionality below!
+.nav--tabs {
+	@if $modifiers-extend == true { @extend %nav; }
+	border-bottom: 1px solid $cl-border;
+	margin-bottom: 0;
+    > li > a {
+		background-color: lighten($cl-border, 37%);
+		text-decoration: none;
+		padding: $pd-default/2 $pd-default;
+		border: 1px solid $cl-border;
+		//border-bottom-color: $cl-border; // same as border-color of .nav--tabs parent
+		@if $bd-radius != 0 {
+			border-top-left-radius: $bd-radius;
+			border-top-right-radius: $bd-radius;
+		}
+		position: relative;
+		bottom: -1px;
+    }
+	> li.is-active a, a.is-active {
+		background-color: $cl-white;
+		color: $cl-text;
+		border-bottom-color: $cl-white;
+	}
+	// Mobile first: so we start 'stacked'
+	// We use max-width here to no interfere with .nav as a whole
+	@media (max-width: $mq-medium) {
+		> li, li > a { display: block; }
+	}
+}
+
+// We only style 'functional tabs': meaning: we style based on added ARIA roles now!
+
+// Hack to cover 1px gap between first tab and tabpanel
+// only needed when functional, so we style based on ARIA roles
+[role="tabpanel"] {
+	position: relative;
+	&:before {
+		content: " ";
+		background: $cl-border; // color of tabpanel border
+		width: 1px; height: 1px;
+		position: absolute;
+		top: -1px; left: -1px;
+	}
+}
+
+// Style tabcontent and Hide inactive tabpanels
+[role="tabpanel"] {
+	// Add padding / border
+	padding: $pd-default;
+	border: 1px solid $cl-border;
+	border-width: 0 1px 1px 1px;
+	@if $bd-radius != 0 {
+		border-bottom-left-radius: $bd-radius;
+		border-bottom-right-radius: $bd-radius;
+	}
+	// Hide inactive tabs
+	&[aria-hidden="true"] { display: none; }
+}

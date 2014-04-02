@@ -1,0 +1,39 @@
+// ============================================================================
+//   BLOCK QUOTES
+//   --------------------------------------------------------------------------
+//   $name:        /src/scss/base/_blockquotes.scss
+//   $author:      David Hund
+//
+//   $description: Base Sass Styles for Block Quotes.
+//
+//   $contents:
+//                 1  Plain Blockquote
+//                 2  Decorated
+//                 3  ...
+// ============================================================================
+
+/* = Plain BlockQuote
+ --------------------------------------------------------------------------- */
+blockquote {
+  // margin-left: 0;
+  // margin-right: 0;
+
+  & > p:before,
+  & > p:after {
+    @extend %inline-block;
+    width: .2em;
+    font-family: arial, sans-serif;
+    font-size: 1.125em;
+    line-height: .5;
+    font-style: normal;
+    font-weight: normal;
+  }
+  & > p:before { content: "\201c"; }
+  & > p:after { content: "\201d"; }
+
+  cite {
+    // font-style: normal;
+    // font-weight: bold;
+  }
+}
+

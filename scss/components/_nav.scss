@@ -1,0 +1,56 @@
+// ============================================================================
+//   NAV component
+//   --------------------------------------------------------------------------
+//   $name:        /src/scss/components/_nav.scss
+//   $author:      David Hund
+//
+//   $description: NAV component. Used to display horizontal linked list items
+//                 Heavily inspired by Harry Roberts' (@csswizardry) his `.nav`
+//                 csswizardry.com/2011/09/the-nav-abstraction
+//
+//   $example html:
+//					<ul class="nav">
+//					   <li><a href=#>Home</a></li>
+//					   <li><a href=#>About</a></li>
+//					   <li><a href=#>Contact</a></li>
+//					</ul>
+//
+//   $contents:
+//                 1  Nav linked lists
+// ============================================================================
+
+/* = NAV linked lists
+ --------------------------------------------------------------------------- */
+ .nav, %nav {
+	@extend %clearfix;
+	@extend %list-bare;
+	@include rem(margin-bottom, $base-line);
+
+	// We start mobile first: stacked
+	// only on wider screens we move side-by-side
+	> li {
+		&, > a {
+			display: inline-block;
+		}
+	}
+}
+
+/* = CENTERED modifier
+ --------------------------------------------------------------------------- */
+.nav--centered { 
+	@if $modifiers-extend == true { @extend %nav; }
+	text-align: center;
+}
+
+/* = FIT modifier
+     Force a nav to occupy 100% of the available width of its parent.
+ --------------------------------------------------------------------------- */
+.nav--fit{
+	@if $modifiers-extend == true { @extend %nav; }
+	display: table;
+	width: 100%;
+	> li {
+		display: table-cell;
+		> a { display: block; }
+	}
+}

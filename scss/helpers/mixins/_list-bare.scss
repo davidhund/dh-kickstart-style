@@ -1,0 +1,22 @@
+// ============================================================================
+//   BARE LIST Mixin
+//   --------------------------------------------------------------------------
+//   $name:        /src/scss/mixins/_list-bare.scss
+//   $author:      David Hund
+//
+//   $description: Plain, undecorated, list
+//   https://github.com/inuitcss/objects.bare-list/blob/master/_objects.bare-list.scss
+//
+//   $contents:
+//                 1  Bare List
+//
+// ============================================================================
+
+// = Bare List
+// -----------------------------------------------------------------------------
+
+@mixin list-bare {
+    margin:  0;
+    padding: 0;
+    list-style: none;
+}

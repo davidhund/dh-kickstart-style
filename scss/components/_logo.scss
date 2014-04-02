@@ -1,0 +1,34 @@
+// ============================================================================
+//   LOGO component
+//   --------------------------------------------------------------------------
+//   $name:        /src/scss/components/_logo.scss
+//   $author:      David Hund
+//
+//   $description: Logo component
+//
+//   $contents:
+//                 1  Logo
+// ============================================================================
+
+/* = LOGO
+ --------------------------------------------------------------------------- */
+.logo {
+	display: block;
+	@include rem(font-size,$fs-base-px*1px);
+	line-height: $ln-height;
+	font-weight: normal;
+	margin: 0;
+	@include rem(margin,0 0 $base-line 0);
+
+	padding: 0;
+}
+.logo__link {
+	display: block;
+}
+// Probably very site-specific!
+.logo__img {}
+.logo__text,
+.logo__byline { display: block; }
+.logo__text {}
+.logo__byline {}
+

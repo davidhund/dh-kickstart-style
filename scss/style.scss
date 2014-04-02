@@ -1,0 +1,174 @@
+@charset "UTF-8";
+/* ****************************************************************************
+   STYLE
+   ----------------------------------------------------------------------------
+   @name:        /src/scss/style.scss
+   @author:      David Hund
+   @note:        Main CSS file combining all needed partials. Output minified
+                 Much taken from: 
+                 - SMACCS
+                 - INUIT CSS
+                 - SUIT CSS
+                 - and others such as: http://www.sitepoint.com/architecture-sass-project/
+
+   @contents:
+
+                TODO: Keep this list updated!
+
+                = 01 HELPERS
+                ---------------------------------------------------------------
+                 - Settings 
+                 - Functions
+                 - Mixins   
+
+                = 02 BASE
+                ---------------------------------------------------------------
+                 - Normalize      # v3.0.0
+                 - Webfonts       # also for webfont-icons
+                 - Document
+                 - hyperlinks     
+                 - Type           
+                 - Lists          
+                 - Images         
+                 - Tables         
+                 - Forms          
+
+                = 03 UTILITY Classes
+                ---------------------------------------------------------------
+                 - Utils          # lives in helpers/_utils
+
+                = 04 LAYOUT
+                ---------------------------------------------------------------
+                 - Grids      
+                 - General
+
+                = 05 COMPONENTS
+                # @note: OOCSS/SMACSS/BEM style
+                ---------------------------------------------------------------
+                 - Logo
+                 - Nav
+                 -- Breadcrumbs
+                 -- Pagination
+                 -- Tabs
+                 -- Keywords
+                 - Stacked lists
+                 - Linklists
+                 - Boxed
+                 - Media objects
+                 - Figure
+                 - Message
+                 - Button styles (.btn)
+                 -- Social Media Buttons
+                 - Meta
+
+                = 06 SITE
+                ---------------------------------------------------------------
+                 - Homepage      
+
+                = 07 THEMES
+                ---------------------------------------------------------------
+                 - theme
+
+                = 08 EXTRA
+                # @note: e.g. third-party (vendor) styles
+                ---------------------------------------------------------------
+                 - ?
+
+                = 09 MEDIA QUERIES
+                # @note: breakpoints separate in /mediaqueries/narrow|medium|wide
+                # TODO: or using inline MQ's with MQ() mixin. Undecided :/
+                ---------------------------------------------------------------
+                 - Media Queries
+
+                = 10 PRINT
+                # @note: import with @media to save httprequest)  
+                ---------------------------------------------------------------
+                 - print
+                                                                               
+                = 11 DIAGNOSTIC DEBUGGIN
+                # @note: comment out/remove when in PROD
+                ---------------------------------------------------------------
+                 - is-debugging {} styles...
+
+ =========================================================================== */
+ 
+// =01 HELPERS: these should _not_ output any CSS
+// ----------------------------------------------------------------------------
+@import "helpers/settings";
+@import "helpers/functions";
+@import "helpers/mixins";
+
+/* =02 BASE styles
+ --------------------------------------------------------------------------- */
+@import "base/normalize";
+@import "base/webfonts";
+@import "base/doc";
+@import "base/hyperlinks";
+@import "base/type";
+@import "base/lists";
+@import "base/images";
+@import "base/tables";
+@import "base/forms";
+
+/* =03 UTILITIES
+ --------------------------------------------------------------------------- */
+// Helper classed that are not Components. Use mixins, output CSS
+// We add them here (after Base) so that the classes are outputted
+// after Base HTML. Base still is able to @extend %util classes, etc.
+@import "helpers/utils";
+
+/* =04 LAYOUT styles
+ --------------------------------------------------------------------------- */
+@import "layout/grids";
+@import "layout/general";
+
+/* =05 COMPONENT (BEM/SMACSS OOCSS) styles
+ --------------------------------------------------------------------------- */
+@import "components/logo";
+@import "components/nav";
+@import "components/nav--breadcrumbs";
+@import "components/nav--pagination";
+@import "components/nav--tabs";
+@import "components/nav--keywords";
+@import "components/list-stacked";
+@import "components/linklist";
+@import "components/boxed";
+@import "components/media";
+@import "components/figure";
+@import "components/message";
+@import "components/btn";
+@import "components/btn-social"; // Experimental: adds SVG data uri icons. Increases file-size considerably
+@import "components/meta";
+
+/* =06 Page-specific styles for SITE
+ --------------------------------------------------------------------------- */
+@import "site/home";
+
+/* =07 THEMES specific styles for some theme
+ --------------------------------------------------------------------------- */
+@import "themes/theme";
+
+/* =08 EXTRA specific styles for some extra (vendor?) styles
+ --------------------------------------------------------------------------- */
+// @import "extra/x";
+
+
+/* =09 MEDIAQUERIES
+ --------------------------------------------------------------------------- */
+// TODO: should we merge these inline with the styles??!
+// WE CAN: with the `MQ($mq-size){...}` mixin...
+// ---------------------------------------------------------------------------
+@import "mediaqueries";
+
+/* =10 PRINT
+ --------------------------------------------------------------------------- */
+@media print { @import "print"; }
+
+/* =11 DEBUGGING
+ --------------------------------------------------------------------------- */
+.is-debugging { 
+    * { 
+        background: rgba(250,150,150,0.075);
+        outline: 1px solid rgba(255,255,255,0.25); 
+    } 
+}

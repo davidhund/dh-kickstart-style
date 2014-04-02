@@ -1,0 +1,27 @@
+// ============================================================================
+//   IMAGES
+//   --------------------------------------------------------------------------
+//   $name:        /src/scss/base/_images.scss
+//   $author:      David Hund
+//
+//   $description: Base Sass Styles for Images.
+//
+//   $contents:
+//                 1  Plain Img
+//                 2  figure
+//                 3  ...
+// ============================================================================
+
+/* = Plain Img
+ --------------------------------------------------------------------------- */
+img { 
+  border: 0; 
+  -ms-interpolation-mode: bicubic;
+}
+img, video, audio, iframe, object { max-width: 100%; }
+// a img { border: none; }
+
+/* = Plain Figure
+ --------------------------------------------------------------------------- */
+figure {}
+figcaption {}

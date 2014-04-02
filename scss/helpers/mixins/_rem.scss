@@ -1,0 +1,56 @@
+// ============================================================================
+// REM
+// ----------------------------------------------------------------------------
+// Should we provide a PX fallback?
+$rem-px: true !default;
+
+// Really extended Rem/Px Mixin/function by Hugo Giraudel
+// http://hugogiraudel.com/2013/03/18/ultimate-rem-mixin/
+@mixin rem($property, $values) {
+  // This mixin relies on a base font-size of 10px (62.5%)
+  // I, however, use 100% (16px)
+  // So we use that ($fs-base-px) ;)
+
+  $px : (); // 3
+  $rem: (); // 3
+  
+  @each $value in $values {   // 4
+   
+    @if $value == 0 or $value == auto { 
+      // 5
+      $px : append($px , $value);
+      $rem: append($rem, $value);
+    }
+    
+    @else { 
+      $unit: unit($value);    // 6
+      $val: parseInt($value); // 6
+      
+      @if $unit == "px" {     // 7
+        $px : append($px,  $value);
+        $rem: append($rem, ($val / $fs-base-px + rem));
+      }
+      
+      @if $unit == "rem" {    // 7
+        $px : append($px,  ($val * $fs-base-px + px));
+        $rem: append($rem, $value);
+      }
+    }
+  }
+  
+  @if $px == $rem {           // 8
+    #{$property}: $px;        // 9
+  } @else {
+    @if $rem-px == true {
+      #{$property}: $px;        // 9
+      #{$property}: $rem;       // 9
+    } @else {
+      #{$property}: $rem;       // 9
+    }
+  }
+}
+
+// And a simple em() mixin
+@mixin em($selector, $target-px-size, $context-px-size: $fs_base_px) {
+  #{$selector} : ($target-px-size / $context-px-size) * 1em;
+}

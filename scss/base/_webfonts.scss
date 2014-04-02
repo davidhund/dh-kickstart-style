@@ -1,0 +1,25 @@
+// ============================================================================
+//   WEBFONTS
+//   --------------------------------------------------------------------------
+//   @name:        /src/scss/base/_webfonts.scss
+//   @author:      David Hund
+//
+//   @description: @font-face etc
+//                 Syntax based on: http://www.fontspring.com/blog/further-hardening-of-the-bulletproof-syntax
+//
+//   @contents:
+//                 1  @font-face
+// ============================================================================
+
+// /* = Font-face
+//  --------------------------------------------------------------------------- */
+// @font-face {
+//     font-family: 'custom-font';
+//     src: url('/css//webfonts/custom-font/custom-font.eot');
+//     src: url('/css//webfonts/custom-font/custom-font.eot?#iefix') format('embedded-opentype'),
+//          url('/css//webfonts/custom-font/custom-font.woff') format('woff'),
+//          url('/css//webfonts/custom-font/custom-font.ttf') format('truetype'),
+//          url('/css//webfonts/custom-font/custom-font.svg#custom-font') format('svg');
+//     font-weight: normal;
+//     font-style: normal;
+// }

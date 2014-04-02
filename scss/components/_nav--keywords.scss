@@ -1,0 +1,32 @@
+// ============================================================================
+//   NAV KEYWORDS modifier component
+//   --------------------------------------------------------------------------
+//   $name:        /src/scss/components/_nav--keywords.scss
+//   $author:      David Hund
+//
+//   $description: Depends on NAV component.
+//
+//   $example html:
+//					<ul class="nav nav--keywords">
+//					   <li><a href=#>Keywords</a></li>
+//					   <li><a href=#>Keyword</a></li>
+//					   <li><a href=#>Keyword</a></li>
+//					</ul>
+//
+//   $contents:
+//                 1  Nav pagination
+// ============================================================================
+
+.nav--keywords {
+	@if $modifiers-extend == true { @extend %nav; }
+    > li{
+
+        &:after{
+            content:"\002C" "\00A0";
+        }
+
+        &:last-child:after{
+            display:none;
+        }
+    }
+}

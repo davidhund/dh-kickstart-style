@@ -1,0 +1,79 @@
+// ============================================================================
+//   TYPOGRAPHY
+//   --------------------------------------------------------------------------
+//   $name:        /src/scss/base/_type.scss
+//   $author:      David Hund
+//
+//   $description: Base Sass Styles for Type.
+//
+//   $contents:
+//                 1  General
+//                 2  Headings
+//                 3  ...
+//                 4  Simple Text helper classes
+// ============================================================================
+
+
+/* = General Type
+ --------------------------------------------------------------------------- */
+p, 
+ul, ol, dl, 
+td, 
+input, select, textarea
+{ line-height: $ln-height; }
+
+// Baseline bottom margin (vertical rythm)
+p,
+ul, ol, dl,
+table,
+blockquote,
+figure, figcaption,
+hr { 
+  margin-top: 0;
+  @include rem(margin-bottom,$base-line);
+  // &:last-child { margin-bottom: 0; }
+}
+
+address {
+  font-style: normal; 
+}
+
+/* = Headings
+ --------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: bold;
+  margin-top: 0;
+  // TODO: figure out correct vertical rhytm
+  margin-bottom: round( $base-line / 2 ); 
+  // Default line-height for all headings?
+  line-height: $ln-height;
+}
+// TODO: figure out neat type-scale.com (Perfect Fourth?)
+h1, .h1 { font-size: 3em; }                          // ~ 48px
+h2, .h2 { font-size: 2.25em; }                       // ~ 36px
+h3, .h3 { font-size: 1.5em; }                        // ~ 24px
+h4, .h4 { font-size: 1.3125em; }                     // ~ 21px
+h5, .h5 { font-size: 1.125em; font-weight: normal; } // ~ 18px
+h6, .h6 { font-size: 1em; font-weight: normal; }     // ~ 16px
+
+// EXPERIMENT: Golden Ratio sizes
+// @for $i from 1 through 6 {
+//    h#{$i}, .h#{$i} { font-size: ((6 / $i)*$phi)*1em; }
+// }
+
+// EXPERIMENT: Fibonacci sizes
+// @for $i from 1 through 6 {
+//     h#{$i}, .h#{$i} { 
+//         /* test: */font-size: (nth($fibonacci,(7-$i))*16)*1px;
+//         font-size: nth($fibonacci,(7-$i))*1em;
+//     }
+// }
+
+
+
+/* = SIMPLE TEXT HELPERS
+ --------------------------------------------------------------------------- */
+.intro {
+  font-weight: bold;
+}

@@ -1,0 +1,72 @@
+// ============================================================================
+//   BOXED component
+//   --------------------------------------------------------------------------
+//   $name:        /src/scss/components/_boxed.scss
+//   $author:      David Hund
+//
+//   $description: Generic BOXED component. Right: a box...
+//                 Could have colors and border radius, etc.
+//
+//   $inspired by: http://csswizardry.com/2011/10/the-island-object/
+//
+//                 The Message component extends this!
+//
+//   $contents:
+//                 1  Boxed Object
+//                 2  Media Lists
+//
+//   HTML:
+//   <div class="boxed">
+//    <p>What ever.</p>
+//   </div>
+// ============================================================================
+
+// .boxed Types
+$boxed-types: (
+  (default    $cl-white       $cl-text)
+  (light      $cl-lightgrey   $cl-text)
+  (accent     $cl-accent      $cl-white)
+) !default;
+ 
+/* = Boxed Object (VERY similar to .message component!)
+ --------------------------------------------------------------------------- */
+.boxed, %boxed {
+	@extend %clearfix;
+	@include rem(padding, $pd-default);
+	@include rem(margin-bottom,$base-line);
+	border: 1px solid;
+	@if $bd-radius != 0 {
+		border-radius: $bd-radius;
+	}
+}
+
+// Mixin for dynamic values
+@mixin boxed($bgcolor, $color) {
+	// &, & a { color: $color; }
+	color: $color;
+	background: $bgcolor;
+	border-color: darken($bgcolor, 20%);
+}
+
+// Loop doing all the message types
+@each $boxed-type in $boxed-types {
+	$type:  nth($boxed-type, 1);
+	$bgcolor: nth($boxed-type, 2);
+	$color: nth($boxed-type, 3);
+	
+	@if $type == 'default' {
+		// Default .boxed (no modifier)		
+		.boxed {
+			@include boxed($bgcolor, $color);
+		}
+	} @else {
+		.boxed--#{$type} {
+			@if $modifiers-extend == true { @extend %boxed; }
+			@include boxed($bgcolor, $color);
+		}
+	}
+}
+
+/* = Extra Boxed Object modifiers
+ --------------------------------------------------------------------------- */
+// .boxed--foo {}

@@ -1,0 +1,41 @@
+// ============================================================================
+//   FIGURE
+//   --------------------------------------------------------------------------
+//   $name:        /src/scss/components/_figure.scss
+//   $author:      David Hund
+//
+//   $description: Figure component
+//
+//   $contents:
+//                 1  figure
+//                 2  ...
+// ============================================================================
+
+/* = Figures
+ --------------------------------------------------------------------------- */
+figure,
+.figure {
+  // width: auto;
+  margin-left: 0;
+}
+
+figure img,
+.figure__caption {
+	display: block;
+}
+
+.figure__img {}
+.figure__link {}
+
+figure, .figure, .figure__caption {
+	@include rem(margin-bottom,$base-line);
+}
+.figure__caption {
+	// @include rem(font-size,16px);
+	color: $cl-grey;
+}
+
+.figure__caption__title,
+.figure__caption__credit {}
+.figure__caption__title { font-weight: bold; &:after { content: ": "; } }
+.figure__caption__credit { font-style: italic; }

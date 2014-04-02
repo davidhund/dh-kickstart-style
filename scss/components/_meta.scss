@@ -1,0 +1,23 @@
+// ============================================================================
+//   META component
+//   --------------------------------------------------------------------------
+//   $name:        /src/scss/components/_meta.scss
+//   $author:      David Hund
+//
+//   $description: META component. Used to display meta info with e.g. an article
+//                 Often used on a <p> or <div>: <p class="meta"><address class="author">Dave</address></p>
+//
+//   $contents:
+//                 1  Meta information
+// ============================================================================
+
+/* = META information
+ --------------------------------------------------------------------------- */
+.meta {
+	@extend %boxed;
+	font-size: .875em;
+	&, & a { 
+		color: $cl-grey;
+	}
+}
+

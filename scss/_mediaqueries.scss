@@ -1,0 +1,45 @@
+// ============================================================================
+//   MEDIA QUERIES
+//   --------------------------------------------------------------------------
+//   @description: Imports all needed mediaqueries from //mediaqueries/*.scss
+//
+//				 _mediaqueries: Breakpoint styles 
+//                 This, in turn, imports various Sass files so that oldIE etc
+//                 could import the 'small|medium|large' styles without MQ's
+//                 See: http://adactio.com/journal/4494/
+//
+//   TODO: we could use *inline* MQ's with `MQ(narrow|medium|wide){ ... }`
+//   Cleaning up inline MQ's: https://www.npmjs.org/package/grunt-combine-media-queries
+//
+//   TODO: also add font-family on `<head>`?
+//   See: 
+//   - https://github.com/JoshBarr/on-media-query
+//   - http://www.brettjankord.com/2012/11/15/syncing-javascript-with-your-active-media-query/
+//   - https://github.com/bjankord/Media-Query-Sync
+// ============================================================================
+
+/* = Narrow Media Query
+ --------------------------------------------------------------------------- */
+@media all and (min-width: $mq-narrow) {
+	@import "mediaqueries/_mq-narrow";
+	head { font-family: 'narrow'; }
+	body:after { content: 'narrow'; display: none; }
+}
+
+/* = Medium Media Query
+ --------------------------------------------------------------------------- */
+@media all and (min-width: $mq-medium) { 
+	@import "mediaqueries/_mq-medium";
+	head { font-family: 'medium'; }
+	body:after { content: 'medium'; display: none; }
+}
+
+
+/* = Wide Media Query
+ --------------------------------------------------------------------------- */
+@media all and (min-width: $mq-wide) { 
+	@import "mediaqueries/_mq-wide";
+	head { font-family: 'wide'; }
+	body:after { content: 'wide'; display: none; }
+}
+

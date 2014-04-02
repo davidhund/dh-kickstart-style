@@ -1,0 +1,29 @@
+// ============================================================================
+//   MIXINS
+//   --------------------------------------------------------------------------
+//   @name:        /src/scss/helpers/mixins.scss
+//   @author:      David Hund
+//
+//   @description: Imports all wanted (SMACSS/OOCSS) mixins from mixins/*
+//   				 Should not output CSS!
+// ============================================================================
+
+// = Import wanted mixins
+// ----------------------------------------------------------------------------
+@import "mixins/clearfix";
+@import "mixins/hide";
+@import "mixins/rem";
+@import "mixins/ridge";
+@import "mixins/list-bare";
+@import "mixins/word-wrap";
+@import "mixins/mediaquery";
+
+// TODO: TEST the rest
+@import "mixins/border-radius";
+@import "mixins/image_2x";
+@import "mixins/inline-block";
+@import "mixins/placeholder";
+@import "mixins/size";
+@import "mixins/text-overflow";
+@import "mixins/text-shadow";
+@import "mixins/triangle";

@@ -1,0 +1,30 @@
+// ============================================================================
+//   DOCUMENT
+//   --------------------------------------------------------------------------
+//   $name:        /src/scss/base/_doc.scss
+//   $author:      David Hund
+//
+//   $description: Base Document Sass Styles.
+//                 - Deals mainly with `html` and `body` styles
+//
+//   $contents:
+//                 1  Border-Box all the things!
+//                 2  HTML/BODY
+// ============================================================================
+
+/* = Box-Sizing magix.
+ --------------------------------------------------------------------------- */
+*, *:before, *:after { box-sizing: border-box; }
+
+/* = <html> / <body> styles
+ --------------------------------------------------------------------------- */
+html {
+	font-size: $fs-base_pc * 1%;
+	font-family: $ff-body;
+	overflow-y: scroll;
+	@include word-wrap;
+}
+
+html, body {
+	color: $cl-text;
+}

@@ -1,0 +1,77 @@
+// ============================================================================
+//   GRIDS
+//   --------------------------------------------------------------------------
+//   $name:        /src/scss/layout/_grids.scss
+//   $author:      David Hund
+//
+//   $description: Generic nestable Grid Styles.
+//                 - Uses inline-block.
+//                 - Depends(!) on box-sizing border-box
+//                 - Whitspace-issues are dealt with with font-size: 0;
+//                 - Default: no gutter (but depends on global $gridGutter)
+//                 - Default: no padding on grid units
+//                 - Margin/Paddings in REM (px fallback)
+//
+//                 - Grids are nestable
+//                 - There are 12 sizes (defined as .l-xofx in /layout/_general.scss )
+//                 - There are 2 'special' Golden Ratio-based sizes: `l-primary` and `l-secondary`
+//                   - `l-primary`   = main content with 'large' ratio
+//                   - `l-secondary` = secondary content with 'smaller' ratio
+//
+//   $inspiration: https://github.com/suitcss/components-grid/blob/master/grid.css
+//                 https://github.com/csswizardry/inuit.css/blob/master/objects/_grids.scss
+//                 http://css-tricks.com/fighting-the-space-between-inline-block-elements/
+//
+//   $contents:
+//                 1  Grid (wrapper)
+//                 1  Grid Unit ('cell')
+//
+//   $HTML:
+//                 <div class="grid">
+//                     <div class="grid__unit l-1of2">
+//                         content
+//                     </div>
+//                     <div class="grid__unit l-1of2">
+//                         content
+//                     </div>
+//                 </div>
+// ============================================================================
+
+/* = Grid
+ --------------------------------------------------------------------------- */
+.grid {
+	display: block;
+	padding: 0;
+	margin: 0;
+	// @if $gridGutter != 0 {
+	// 	@include rem(margin-left,-$gridGutter);
+	// 	@include rem(margin-right,-$gridGutter);
+	// }
+	text-align: left;
+	font-size: 0; // 'Fixes' whitespace issues in HTML
+}
+.grid--align-center { text-align: center; }
+.grid--align-right { text-align: right; }
+
+
+/* = Grid Unit
+ --------------------------------------------------------------------------- */
+.grid__unit {
+	display: inline-block;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	@if $gridGutter != 0 {
+		@include rem(padding-left,$gridGutter);
+		@include rem(padding-right,$gridGutter);
+	}
+	/* font-size in REM because of compounding issue: we set it to '0' on .grid */
+	@include rem(font-size,$fs-base-px*1px);
+	text-align: left;
+	vertical-align: top;
+}
+.grid--centered,
+.grid__unit--centered {
+	display: block;
+	margin: 0 auto;
+}
