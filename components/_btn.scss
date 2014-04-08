@@ -37,7 +37,8 @@
 	border: 1px solid darken( $cl-link, 10% );
   transition: background .15s;
 	@if $bd-radius != 0 { border-radius: $bd-radius; }
-  margin: 0 1em .25em 0;
+  // margin: 0 1em .25em 0;
+  margin: 0 .25em .25em;
 
 	// Hover/active state
 	// TODO: this results in huge selectors. We *could* enforce .btn class??

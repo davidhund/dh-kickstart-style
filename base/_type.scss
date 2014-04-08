@@ -38,6 +38,15 @@ address {
   font-style: normal; 
 }
 
+code {
+  background-color: rgba($cl-text,0.05);
+  color: rgba($cl-text,0.65);
+  padding: .1em .33em;
+  @if $bd-radius != 0 {
+    border-radius: $bd-radius;
+  }
+}
+
 /* = Headings
  --------------------------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6,
