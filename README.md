@@ -1,32 +1,47 @@
 # dh-kickstart-style v0.1.0
 
-A very opinionated OOCSS, boilerplate Sass (`.scss`) architecture for modern projects. I plan to use this as part of my `dh-kickstart` project boilerplate.
+**An design-free, modular OOCSS Sass 3.3 (`.scss`) architecture for *modern* projects. Part of my [dh-kickstart](https://github.com/davidhund/dh-kickstart) project boilerplate.**
 
-This is simply *my* opinionated CSS kickstarter for new projects. As most developers I find myself constantly re-inventing this kind of stuff. However awesome other people's projects are, I keep wanting to reinvent the wheel. Stupid, stubborn me ;)
+As most developers I find myself constantly re-inventing this kind of stuff. However awesome other people's projects are, I keep wanting to reinvent the wheel. This is simply *my* opinionated CSS kickstarter for new projects. Stubborn me ;)
 
-So: this is mine. It's not finished, -very buggy etc. etc. Take a look and feel free to re-use parts of it. Also feel free to tell me where it could be improved.
+So anyway: this is mine. It's not finished. There will be bugs etc. etc. Take a look and feel free to re-use parts of it. Also feel free to tell me where it could be improved.
+
+* [About](#user-content-about)
+ * [Overview](#user-content-overview)
+ * [Naming conventions](#user-content-naming-conventions)
+* [Notes](#user-content-notes)
+* [Install / Use](#user-content-install--use)
+* [Thanks](#user-content-thanks)
 
 ## About
 
-Most 'frameworks' use conventions I'm not 100% happy with, seem bloated, etc. So—as most stubborn developers do— I reinvent the weel. Don't judge: it's what I *like* and I *learn loads* from it :)
+Most 'frameworks' use conventions I'm not 100% happy with and seem bloated for my use-case. So I reinvent the weel. Don't judge: it's what I *like* and I *learn loads* from it :)
 
-* **Modular**: uncomment in `/style.scss` what you don't need
-* **Modern**: not much 'support' for oldIE and other older browsers
-  * see `helpers/_settings.scss` though!
-* **Opinionated**: see the **Notes** below
+* **Modular**: uncomment in `/style.scss` what you don't need (but that'd not be much…)
+* **Modern**: Keepin' it lean: no kb's 'supporting' oldIE etc. 
+  * Take a look at `helpers/_settings.scss` though!
+* **Design-Free**: structural styles mainly. Very little design to override.
+* **'Opinionated'**: build on *my* experience in CSS Architecture. See the [Notes](#user-content-notes) below
 
 ### Overview
 
-- Uses Sass in .scss syntax
-- [Normalize.css](https://github.com/necolas/normalize.css) v3.0.0 copied to `/src/imports/_normalize.scss`
+- **Sass 3.3** `.scss`
+- [Modular architecture](#user-content-folder-structure) based on SMACSS (and others)  
+..with only **one** file (`style.scss`) that compiles to CSS
+- Collection of modular, responsive, OOCSS Components
+  - Stand-alone objects e.g: `/components/_media.scss`
+     - Easily en/disable them in `/style.scss`
+  - Mobile-First
+  - Structural Styles 'only'. Little to no 'design' to override
+- [Normalize.css v3.0.0](https://github.com/necolas/normalize.css)
 - No prefixes! 
-  - No mixins only for prefixes
-  - Use something like [AutoPrefixer](https://github.com/ai/autoprefixer) for that.
-- Uses `box-sizing` everywhere
-- `rem()` mixin
-  - Don't need a `px`-fallback for `rem`? Change `$rem-px` in `helpers/_settings.scss`
-  -  (..and update `mixins/_rem.scss`)
-- Not for everyone: just see what's helpful!
+  - I use [AutoPrefixer](https://github.com/ai/autoprefixer) for that. So should you…
+  - Ditch all these (outdated) mixins-for-prefixes
+- Uses `box-sizing` everywhere. Yes: ancient IE got this right…
+- `rem()` mixin with `px` fallback for *layout*
+  - Don't need a `px`-fallback for `rem`? Change `$rem-px` in `helpers/_settings.scss`  
+  ..and update `mixins/_rem.scss`
+
 
 ### Naming conventions
 
@@ -64,7 +79,65 @@ $cl-grey: #CCC;       // No need to remember #CCC
 $cl-border: $cl-grey; // .. but using $cl-border in components
 ````
 
-### Notes ("much 'opiniated', very personal")
+#### Folder Structure
+
+```
+dh-kickstart-style/
+|- style.scss                // ONLY compiled CSS. @imports all the rest
+|- helpers/
+|    |- _settings.scss
+|    |- _functions.scss
+|    |- _mixins.scss
+|    |- _utils.scss          // imported after Base
+|- base/
+|    |- _normalize.scss
+|    |- _webfonts.scss
+|    |- _doc.scss
+|    |- _hyperlinks.scss
+|    |- _type.scss
+|    |- _lists.scss
+|    |- _images.scss
+|    |- _tables.scss
+|    |- _forms.scss
+|    |- ...
+|- layout/
+|    |- _grids.scss
+|    |- _general.scss
+|    |- ...
+|- components/
+|    |- _logo.scss
+|    |- _nav.scss
+|    |- _nav--breadcrumbs.scss
+|    |- _nav--pagination.scss
+|    |- _nav--tabs.scss
+|    |- _nav--keywords.scss
+|    |- _list-stacked.scss
+|    |- _linklist.scss
+|    |- _boxed.scss
+|    |- _media.scss
+|    |- _figure.scss
+|    |- _message.scss
+|    |- _btn.scss
+|    |- _btn-social.scss     // Experimental: adds SVG data uri icons. Increases file-size considerably
+|    |- _meta.scss
+|    |- ...
+|- site/
+|    |- _home.scss           // Page-specific styles for <PROJECT>
+|    |- ...
+|- themes/
+|    |- _theme-XYZ.scss      // Site-specific theme for <PROJECT>
+|    |- ...
+|- extra/
+|    |- _XYZ.scss            // Specific styles for extra (vendor?) styles
+|    |- ...
+|- _mediaqueries.scss
+|- (_print.scss)             // [Optional] Using @media print {...} in style.scss at the moment.
+
+```
+
+## Notes 
+
+> "much 'opiniated', very personal"
 
 - IE9 is not (actively) _supported_ but should work for 90%
 - CSS Object _Modifiers_ are **added** to the HTML: so no `btn, btn--cta {...}` and then `class="btn--cta"` but use both classes. Define `btn {...} btn--cta { ..extra styles.. }` and use as `class="btn btn--cta"`
@@ -123,7 +196,7 @@ cd my-project
 git submodule add git@github.com:davidhund/dh-kickstart-style.git scss/dh-kickstart-style
 ````
 
-## Using the `.scss` files
+### Using the `.scss` files
 
 You could simply edit all the files (although—using Git—you'd get conflicts when pulling in updates).
 Better is to `@import "dh-kickstart-style/style";` in your `app.scss` or do the reverse and add all your *project specific* styles in the `dh-kickstart-style/site/some-page.scss` or `dh-kickstart-style/theme/some-theme.scss`.
