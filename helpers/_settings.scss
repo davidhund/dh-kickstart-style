@@ -43,6 +43,8 @@ $cl-border:                 $cl-grey;
 $cl-bg:                     $cl-lightgrey;         // Base Background color
 $cl-text:                   $cl-black;             // Base Text color
 $cl-text-alt:               lighten($cl-text,50%); // Alternative, lighter, Text color
+$cl-text-select:            inherit;               // Selected Text color
+$cl-text-select-background: $cl-lightgrey;         // Selected Text color Background
 
 $cl-chrome-bg:              rgba(0,0,0,0.35);      // Chrome (header/footer) Background color
 $cl-chrome-text:            rgba(255,255,255,0.9); // Chrome (header/footer) Text color

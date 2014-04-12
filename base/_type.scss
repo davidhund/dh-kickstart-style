@@ -13,9 +13,15 @@
 //                 4  Simple Text helper classes
 // ============================================================================
 
-
 /* = General Type
  --------------------------------------------------------------------------- */
+// Text-selection: no prefixes needed because Autoprefixer FTW
+::selection {
+  background-color: $cl-text-select-background;
+  color: $cl-text-select;
+  text-shadow: none;
+}
+
 p, 
 ul, ol, dl, 
 td, 

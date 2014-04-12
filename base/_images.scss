@@ -15,8 +15,9 @@
 /* = Plain Img
  --------------------------------------------------------------------------- */
 img { 
-  border: 0; 
-  -ms-interpolation-mode: bicubic;
+	border: 0; 
+	-ms-interpolation-mode: bicubic;
+	vertical-align: middle; // Fixes gap, see: https://github.com/h5bp/html5-boilerplate/issues/440
 }
 img, video, audio, iframe, object { max-width: 100%; }
 // a img { border: none; }
