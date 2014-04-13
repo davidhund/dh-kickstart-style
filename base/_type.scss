@@ -17,17 +17,18 @@
  --------------------------------------------------------------------------- */
 // Text-selection: no prefixes needed because Autoprefixer FTW
 ::selection {
-  @include contrasted($cl-text-select-background); // magically set background and color with OK contrst
-  // background-color: $cl-text-select-background;
-  // color: $cl-text-select;
-  text-shadow: none;
+    @include contrasted($cl-text-select-background); // magically set background and color with OK contrst
+    // background-color: $cl-text-select-background;
+    // color: $cl-text-select;
+    text-shadow: none;
 }
 
 p, 
 ul, ol, dl, 
 td, 
-input, select, textarea
-{ line-height: $ln-height; }
+input, select, textarea {
+    line-height: $ln-height; 
+}
 
 // Baseline bottom margin (vertical rythm)
 p,
@@ -36,34 +37,55 @@ table,
 blockquote,
 figure, figcaption,
 hr { 
-  margin-top: 0;
-  @include rem(margin-bottom,$base-line);
-  // &:last-child { margin-bottom: 0; }
+    margin-top: 0;
+    @include rem(margin-bottom,$base-line);
+    // &:last-child { margin-bottom: 0; }
 }
 
 address {
-  font-style: normal; 
+    font-style: normal; 
 }
 
 code {
-  background-color: rgba($cl-text,0.05);
-  color: rgba($cl-text,0.65);
-  padding: .1em .33em;
-  @if $bd-radius != 0 {
-    border-radius: $bd-radius;
-  }
+    background-color: rgba($cl-text,0.05);
+    color: rgba($cl-text,0.65);
+    padding: .1em .33em;
+    @if $bd-radius != 0 {
+        border-radius: $bd-radius;
+    }
 }
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid $cl-border;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+audio,
+canvas,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
 
 /* = Headings
  --------------------------------------------------------------------------- */
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
-  font-weight: bold;
-  margin-top: 0;
-  // TODO: figure out correct vertical rhytm
-  margin-bottom: round( $base-line / 2 ); 
-  // Default line-height for all headings?
-  line-height: $ln-height;
+ h1, h2, h3, h4, h5, h6,
+ .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-weight: bold;
+    margin-top: 0;
+    // TODO: figure out correct vertical rhytm
+    margin-bottom: round( $base-line / 2 ); 
+    // Default line-height for all headings?
+    line-height: $ln-height;
 }
 // TODO: figure out neat type-scale.com (Perfect Fourth?)
 h1, .h1 { font-size: 3em; }                          // ~ 48px
@@ -87,9 +109,8 @@ h6, .h6 { font-size: 1em; font-weight: normal; }     // ~ 16px
 // }
 
 
-
 /* = SIMPLE TEXT HELPERS
  --------------------------------------------------------------------------- */
-.intro {
-  font-weight: bold;
+ .intro {
+    font-weight: bold;
 }
