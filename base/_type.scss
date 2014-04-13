@@ -17,8 +17,9 @@
  --------------------------------------------------------------------------- */
 // Text-selection: no prefixes needed because Autoprefixer FTW
 ::selection {
-  background-color: $cl-text-select-background;
-  color: $cl-text-select;
+  @include contrasted($cl-text-select-background); // magically set background and color with OK contrst
+  // background-color: $cl-text-select-background;
+  // color: $cl-text-select;
   text-shadow: none;
 }
 

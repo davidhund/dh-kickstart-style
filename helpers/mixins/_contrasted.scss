@@ -1,0 +1,18 @@
+// ============================================================================
+// CONTRASTED
+// -------------------------
+// Sets the specified background color and calculates a dark or light contrasted text color.
+// The arguments are passed through to the [contrast-color function](#function-contrast-color).
+// Source: http://compass-style.org/reference/compass/utilities/color/contrast/
+
+// Depends on `contrast-color()` function
+
+@mixin contrasted(
+	$background-color,
+	$dark: $contrasted-dark-default,
+	$light: $contrasted-light-default,
+	$threshold: $contrasted-lightness-threshold
+) {
+	background-color: $background-color;
+	color: contrast-color($background-color, $dark, $light, $threshold);
+}
