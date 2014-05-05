@@ -28,7 +28,7 @@ figure img,
 .figure__link {}
 
 figure, .figure, .figure__caption {
-	@include rem(margin-bottom,$base-line);
+	@extend %mg-base-line;
 }
 .figure__caption {
 	// @include rem(font-size,16px);

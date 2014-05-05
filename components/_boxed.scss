@@ -32,8 +32,8 @@ $boxed-types: (
  --------------------------------------------------------------------------- */
 .boxed, %boxed {
 	@extend %clearfix;
+	@extend %mg-base-line;
 	@include rem(padding, $pd-default);
-	@include rem(margin-bottom,$base-line);
 	border: 1px solid;
 	@if $bd-radius != 0 {
 		border-radius: $bd-radius;

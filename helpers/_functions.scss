@@ -12,16 +12,28 @@ $fibonacci: (1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144);
 	@return $n / ($n * 0 + 1);
 }
 
-// // pow()
-// // from: http://hugogiraudel.com/2013/10/17/sass-random/
-// @function pow($val, $pow) {
-// 	$res: 1;
-// 	@while($pow > 0) {
-// 		$res: $res * $val;
-// 		$pow: $pow - 1;
-// 	}
-// 	@return $res;
-// }
+// pow()
+// From: http://unindented.org/articles/trigonometry-in-sass/
+@function pow($number, $exp) {
+	$value: $number;
+	@if $exp > 0 {
+		// If the exponent is positive, multiply.
+		@for $i from 2 through $exp {
+			$value: $value * $number;
+		}
+	}
+	@else if $exp < 0 {
+		// If the exponent is negative, divide.
+		@for $i from 0 through -$exp {
+			$value: $value / $number;
+		}
+	}
+	@else {
+		// If the exponent is zero, just return 1.
+		$value: 1;
+	}
+	@return $value;
+}
 
 // // goldenRatioRemainder()
 // // TODO: NOT finished, ...

@@ -37,8 +37,8 @@ table,
 blockquote,
 figure, figcaption,
 hr { 
+    @extend %mg-base-line;
     margin-top: 0;
-    @include rem(margin-bottom,$base-line);
     // &:last-child { margin-bottom: 0; }
 }
 
@@ -82,23 +82,16 @@ video {
  .h1, .h2, .h3, .h4, .h5, .h6 {
     font-weight: bold;
     margin-top: 0;
-    // TODO: figure out correct vertical rhytm
-    margin-bottom: round( $base-line / 2 ); 
-    // Default line-height for all headings?
-    line-height: $ln-height;
 }
-// TODO: figure out neat type-scale.com (Perfect Fourth?)
-h1, .h1 { font-size: 3em; }                          // ~ 48px
-h2, .h2 { font-size: 2.25em; }                       // ~ 36px
-h3, .h3 { font-size: 1.5em; }                        // ~ 24px
-h4, .h4 { font-size: 1.3125em; }                     // ~ 21px
-h5, .h5 { font-size: 1.125em; font-weight: normal; } // ~ 18px
-h6, .h6 { font-size: 1em; font-weight: normal; }     // ~ 16px
-
-// EXPERIMENT: Golden Ratio sizes
-// @for $i from 1 through 6 {
-//    h#{$i}, .h#{$i} { font-size: ((6 / $i)*$phi)*1em; }
-// }
+// Sizes based on $hn-scale, from a neat type-scale.com (Perfect Fourth: 1.333?)
+// The margin/line-height values are Magic I'm afraid. Manually worked out Vertical Rhythm
+h1, .h1 { font-size: pow($hn-scale, 4)*1em; line-height: 1.43; margin-bottom: .47em; }
+h2, .h2 { font-size: pow($hn-scale, 3)*1em; line-height: 1.3;  margin-bottom: .65em; }
+h3, .h3 { font-size: pow($hn-scale, 2)*1em; line-height: 1.5;  margin-bottom: .2em; }
+h4, .h4,
+h5, .h5 { font-size: $hn-scale*1em; line-height: 1.5; margin-bottom: .8em; }
+h5, .h5 { font-weight: normal; }
+h6, .h6 { font-size: 1em; font-weight: bold; line-height: 1.5; margin-bottom: 0; }
 
 // EXPERIMENT: Fibonacci sizes
 // @for $i from 1 through 6 {
@@ -112,5 +105,7 @@ h6, .h6 { font-size: 1em; font-weight: normal; }     // ~ 16px
 /* = SIMPLE TEXT HELPERS
  --------------------------------------------------------------------------- */
  .intro {
+    font-size: 1.5em;
     font-weight: bold;
+    line-height: 2;
 }

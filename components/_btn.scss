@@ -96,117 +96,118 @@
   }
 }
 
-// BUTTON SCSS By Hugo Giraudel
-// http://hugogiraudel.com/2014/03/03/another-sass-button-library/
-// Depends on Sass 3.3
+
+// // BUTTON SCSS By Hugo Giraudel
+// // http://hugogiraudel.com/2014/03/03/another-sass-button-library/
+// // Depends on Sass 3.3
 
 
-// Configuration
-$btn-name: 'button' !default;
-$btn-hover: lighten 10% !default;
-$btn-border:  darken 10% !default; // Set to false for no border
-$btn-size-ratio: 1.5 !default;
-$btn-schemes: (
-  default: #7f8c8d,
-  success: #27ae60,
-  danger:  #c0392b,
-  warning: #f1c40f,
-  info:    #2980b9
-) !default;
+// // Configuration
+// $btn-name: 'button' !default;
+// $btn-hover: lighten 10% !default;
+// $btn-border:  darken 10% !default; // Set to false for no border
+// $btn-size-ratio: 1.5 !default;
+// $btn-schemes: (
+//   default: #7f8c8d,
+//   success: #27ae60,
+//   danger:  #c0392b,
+//   warning: #f1c40f,
+//   info:    #2980b9
+// ) !default;
 
-// Color helper 
-// 1. Background-color
-// 2. On hover
-// 3. Border-color
-@mixin button-color($color) {
-  $everything-okay: true;
+// // Color helper 
+// // 1. Background-color
+// // 2. On hover
+// // 3. Border-color
+// @mixin button-color($color) {
+//   $everything-okay: true;
   
-  // Making sure $color is a color
-  @if type-of($color) != color {
-    @warn "`#{$color}` is not a color for `button-color`";
-    $everything-okay: false;  
-  }
+//   // Making sure $color is a color
+//   @if type-of($color) != color {
+//     @warn "`#{$color}` is not a color for `button-color`";
+//     $everything-okay: false;  
+//   }
   
-  // Making sure $btn-hover and $btn-border are 2 items long
-  @if length($btn-hover) != 2 
-   or length($btn-border) != 2 {
-    @warn "Both `$btn-hover` and `$btn-border` should be two items long for `button-color`.";
-    $everything-okay: false;  
-  }
+//   // Making sure $btn-hover and $btn-border are 2 items long
+//   @if length($btn-hover) != 2 
+//    or length($btn-border) != 2 {
+//     @warn "Both `$btn-hover` and `$btn-border` should be two items long for `button-color`.";
+//     $everything-okay: false;  
+//   }
   
-  // Making sure first items from $btn-hover and $btn-border are valid functions
-  @if not function-exists(nth($btn-hover, 1)) 
-   or not function-exists(nth($btn-border, 1)) {
-    @warn "Either `#{nth($btn-hover, 1)}` or `#{nth($btn-border, 1)}` is not a valid function for `button-color`.";
-    $everything-okay: false;  
-  }
+//   // Making sure first items from $btn-hover and $btn-border are valid functions
+//   @if not function-exists(nth($btn-hover, 1)) 
+//    or not function-exists(nth($btn-border, 1)) {
+//     @warn "Either `#{nth($btn-hover, 1)}` or `#{nth($btn-border, 1)}` is not a valid function for `button-color`.";
+//     $everything-okay: false;  
+//   }
   
-  // Making sure second items from $btn-hover and $btn-border are percentages
-  @if type-of(nth($btn-hover, 2)) != number 
-   or type-of(nth($btn-border, 2)) != number {
-    @warn "Either `#{nth($btn-hover, 2)}` or `#{nth($btn-border, 2)}` is not a valid percentage for `button-color`.";
-    $everything-okay: false;  
-  }
+//   // Making sure second items from $btn-hover and $btn-border are percentages
+//   @if type-of(nth($btn-hover, 2)) != number 
+//    or type-of(nth($btn-border, 2)) != number {
+//     @warn "Either `#{nth($btn-hover, 2)}` or `#{nth($btn-border, 2)}` is not a valid percentage for `button-color`.";
+//     $everything-okay: false;  
+//   }
   
-  // If there is no mistake
-  @if $everything-okay == true {
-    background-color: $color; // 1
+//   // If there is no mistake
+//   @if $everything-okay == true {
+//     background-color: $color; // 1
   
-    &:hover,
-    &:active { // 2
-      background: call(nth($btn-hover, 1), $color, nth($btn-hover, 2));
-    }  
+//     &:hover,
+//     &:active { // 2
+//       background: call(nth($btn-hover, 1), $color, nth($btn-hover, 2));
+//     }  
   
-    @if $btn-border != false { // 3
-      border-color: call(nth($btn-border, 1), $color, nth($btn-border, 2));
-    }
-  }
-}
+//     @if $btn-border != false { // 3
+//       border-color: call(nth($btn-border, 1), $color, nth($btn-border, 2));
+//     }
+//   }
+// }
 
-// Default class
-// 1. Border or not border?
-// 2. Large modifier
-// 3. Small modifier
-// 4. Bold modifier
-// 5. Block modifier
-// 6. Uppercase modifier
-// 7. Color themes modifier
-.#{$btn-name} {
-  // Default styles
-  padding: .25em .5em;
-  margin: 0 1em .25em 0;
-  color: $cl-white;
-  transition: background .15s;
-  box-shadow: inset 0 1px rgba($cl-white, .2);
-  border-radius: $bd-radius;
-  border: if($btn-border != false, 1px solid, none); // 1
+// // Default class
+// // 1. Border or not border?
+// // 2. Large modifier
+// // 3. Small modifier
+// // 4. Bold modifier
+// // 5. Block modifier
+// // 6. Uppercase modifier
+// // 7. Color themes modifier
+// .#{$btn-name} {
+//   // Default styles
+//   padding: .25em .5em;
+//   margin: 0 1em .25em 0;
+//   color: $cl-white;
+//   transition: background .15s;
+//   box-shadow: inset 0 1px rgba($cl-white, .2);
+//   border-radius: $bd-radius;
+//   border: if($btn-border != false, 1px solid, none); // 1
   
-  // Modifiers
-  &--large { // 2
-    font-size: 1em * $btn-size-ratio;
-  }
+//   // Modifiers
+//   &--large { // 2
+//     font-size: 1em * $btn-size-ratio;
+//   }
   
-  &--small { // 3
-    font-size: 1em / $btn-size-ratio;
-  }
+//   &--small { // 3
+//     font-size: 1em / $btn-size-ratio;
+//   }
 
-  &--bold { // 4
-    font-weight: bold;
-  }
+//   &--bold { // 4
+//     font-weight: bold;
+//   }
   
-  &--block { // 5
-    display: block;
-    width: 100%;
-  }  
+//   &--block { // 5
+//     display: block;
+//     width: 100%;
+//   }  
   
-  &--upper { // 6
-    text-transform: uppercase;
-  }
+//   &--upper { // 6
+//     text-transform: uppercase;
+//   }
   
-  @each $key, $value in $btn-schemes { // 7
-    &--#{$key} {
-      @include button-color($value);
-    }
-  }
-}
+//   @each $key, $value in $btn-schemes { // 7
+//     &--#{$key} {
+//       @include button-color($value);
+//     }
+//   }
+// }
 

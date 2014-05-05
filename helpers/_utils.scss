@@ -21,6 +21,7 @@
 //                 4  Bare, unstyled, lists without bullets
 //                 5  Ridged blocks (border)
 //                 6  Multi Column text
+//                 7  Vertical Rhythm through margin-bottom
 // ============================================================================
 
 // TODO: check out H5BP Helpers: https://github.com/h5bp/html5-boilerplate/blob/master/css/main.css
@@ -60,3 +61,10 @@
 .text-columns--three, %text-columns--three { column-count: 3; }
 .text-columns--four, %text-columns--four { column-count: 4; }
 
+/* = Vertical-rhythm according to $base-line ( == ln-height )
+     Set in REM with PX fallback
+ --------------------------------------------------------------------------- */
+.mg-base-line, %mg-base-line {
+	margin-bottom: $base-line-px;
+	margin-bottom: $base-line-rem;
+}

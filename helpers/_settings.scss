@@ -68,8 +68,21 @@ $phi: 1.61803;
 // Type
 $fs-base-pc:                100;                   // ~= 100% ~= 16px, Base font size, Browser default of 100%
 $fs-base-px:                16;                    // ~= 16px, Base font size
-$ln-height:                 $phi;                  // 1.618 != 25.888 ~= 26 //1.5 ~= 24px
-$base-line:                 round( $ln-height * ($fs-base-px * 1px) );
+$ln-height:                 1.5;                  // 1.618 != 25.888 ~= 26 //1.5 ~= 24px
+
+// Heading Type Scale: type-scale.com
+$hn-scale: 1.333; // Perfect Fourth, 
+
+// Vertical Rhythm: 
+// - Used as .mg-baseline, %mg-baseline in _utils.scss
+// - Based on line-height
+// - Set as margin-bottom: in REM with PX fallback
+// ----------------------------------------------------------------------------
+// Round to px (26px) is neat but small rounding errors
+$base-line-px:              round( $ln-height * ($fs-base-px * 1px) );
+// Don't round to px (25.88848px) is nasty but no rounding errors
+$base-line-px:              $ln-height * ($fs-base-px * 1px);
+$base-line-rem:             $ln-height * 1rem;
 
 // Breakpoints (Media Query min-width)
 $mq-narrow: 30em;                                  // ~ 480px
@@ -80,8 +93,8 @@ $breakpoints: narrow $mq-narrow, medium $mq-medium, wide $mq-wide;
 // Padding / Margin
 $gutter:                    $fs-base-px*1px;       // PX: Default space between stuff
 $gridGutter:                $gutter/2;             // PX or "0" (will be converted to REM)
-$pd-default:                20px;                  // PX (will be converted to REM)
-$mg-default:                $base-line;            // PX (will be converted to REM)
+$pd-default:                $base-line-px;                  // PX (will be converted to REM)
+$mg-default:                $base-line-px;            // PX (will be converted to REM)
 
 // Decoration
 $bd-radius:                 0; //2px;                   // Default border-radius

@@ -18,7 +18,7 @@
 	line-height: $ln-height;
 	font-weight: normal;
 	margin: 0;
-	@include rem(margin,0 0 $base-line 0);
+	@include rem(margin,0 0 $base-line-px 0);
 
 	padding: 0;
 }

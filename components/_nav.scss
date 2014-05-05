@@ -23,8 +23,8 @@
  --------------------------------------------------------------------------- */
  .nav, %nav {
 	@extend %clearfix;
+	@extend %mg-base-line;
 	@extend %list-bare;
-	@include rem(margin-bottom, $base-line);
 
 	// We start mobile first: stacked
 	// only on wider screens we move side-by-side

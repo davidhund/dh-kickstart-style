@@ -48,7 +48,7 @@
 .media,
 .media-list,
 .media-list > li {
-	@include rem(margin-bottom,$base-line);
+	@extend %mg-base-line;
 }
 
 .media__img, %media__img {

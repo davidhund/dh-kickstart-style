@@ -164,11 +164,6 @@
  --------------------------------------------------------------------------- */
 @media print { @import "print"; }
 
-/* =11 DEBUGGING
+/* =11 DEBUGGING: comment out in PROD
  --------------------------------------------------------------------------- */
-.is-debugging { 
-    * { 
-        background: rgba(250,150,150,0.075);
-        outline: 1px solid rgba(255,255,255,0.25); 
-    } 
-}
+@import "helpers/debug";

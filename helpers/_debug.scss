@@ -1,0 +1,46 @@
+// ============================================================================
+//   DEBUG Util
+//   --------------------------------------------------------------------------
+//   $name:        /src/scss/utils/_debug.scss
+//   $author:      David Hund
+//
+//   $description: Helper classes that help debug the design/CSS
+//           - outline/bg-color of all elements
+//           - vertical rhytm lines
+//
+//           e.g. 
+//           Used as class: <html class="is-debugging">
+//
+//   $contents:
+//                 1  Show Vertical Rhythm
+//                 2  Outline/Highlight elements
+// ============================================================================
+#debug { display: none; }
+.debug { 
+	// Vertical Rhythm lines: 
+	// - this is not exactly 100% absolutely pixel-perfect
+	// - there will be rounding issues etc
+	height: 100%; // TODO: add this to BASE?
+	background-image: linear-gradient(rgba(200,0,0,0.2) 1px, transparent 1px);
+	background-position: 0 0; // Account for 1px offset in gradient?
+	background-size: 100% $base-line-px; // last value should be your vertical rhytm!
+
+	// Outline all elements
+    * { 
+        background: rgba(250,150,150,0.075);
+        outline: 1px solid rgba(255,255,255,0.25); 
+    } 
+	#debug {
+		display: block;
+		width: 100px;
+		height: $base-line-px;
+		background: red;
+		color: white;
+		text-align: center;
+		border: 1px solid green;
+
+		position: absolute;
+		left: 0;
+		top: $base-line-px;
+	}
+}

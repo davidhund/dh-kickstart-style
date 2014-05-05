@@ -16,7 +16,7 @@
 	@extend %list-bare;
 	li > a {
 		@extend %ridge;
-		@include rem(padding-top, $pd-default/2);
+		@include rem(padding-top, ($pd-default - 2)/2); // $pd-default - 2; to account for border+box-shadow
 		@include rem(padding-left, $pd-default);
 		@include rem(padding-right, $pd-default);
 	}

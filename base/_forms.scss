@@ -18,7 +18,7 @@ fieldset {
     border: 0;
     padding: 0;
     margin-top: 0;
-    @include rem(margin-bottom,$base-line);
+    @extend %mg-base-line;
 }
 
 textarea {
