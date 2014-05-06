@@ -12,3 +12,11 @@
 
 /* = ...
  --------------------------------------------------------------------------- */
+// Vertical Rhytm fixes
+[role="header"],
+[role="navigation"],
+[role="main"],
+[role="complementary"],
+[role="contentinfo"] {
+	@extend %mg-base-line;
+}

@@ -25,7 +25,8 @@
 
 p, 
 ul, ol, dl, 
-td, 
+td,
+pre, 
 input, select, textarea {
     line-height: $ln-height; 
 }
@@ -36,10 +37,20 @@ ul, ol, dl,
 table,
 blockquote,
 figure, figcaption,
-hr { 
+hr,
+pre { 
     @extend %mg-base-line;
     margin-top: 0;
     // &:last-child { margin-bottom: 0; }
+}
+
+// Lists
+ul, ol {
+    padding-left: 0;
+    & ul,
+    & ol {
+        padding-left: 1em;
+    }
 }
 
 address {
@@ -53,6 +64,14 @@ code {
     @if $bd-radius != 0 {
         border-radius: $bd-radius;
     }
+}
+pre {
+    padding: 0 $base-line-rem;
+}
+pre > code {
+    display: block;
+    width: 100%;
+    padding: 0; 
 }
 
 hr {
@@ -105,7 +124,10 @@ h6, .h6 { font-size: 1em; font-weight: bold; line-height: 1.5; margin-bottom: 0;
 /* = SIMPLE TEXT HELPERS
  --------------------------------------------------------------------------- */
  .intro {
-    font-size: 1.5em;
     font-weight: bold;
-    line-height: 2;
+    @include MQ(medium) {
+        font-size: 1.5em;
+        line-height: 2;
+        margin-top: $base-line-rem*2;
+    }
 }

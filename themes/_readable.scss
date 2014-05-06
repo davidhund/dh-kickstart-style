@@ -1,0 +1,149 @@
+// ============================================================================
+//   THEME Readable
+//   --------------------------------------------------------------------------
+//   $name:        /src/scss/themes/_readable.scss
+//   $author:      David Hund
+//
+//   $description: Specific 'Readable' Styles: a very, vuherry, simple theme
+//                 with the only aim to provide a readable baseline
+//
+//   $contents:
+//                 1  ...
+// ============================================================================
+
+/* = Variables specific to this theme
+
+     NOTE: You should probably change /extra/_settings.scss
+           instead of changing variables here.
+           For example: change $cl-border in _settings.scss instead of
+           .. adding all needed components here.
+
+           This Theme CSS is merely to give _some_ basic theming styles
+ --------------------------------------------------------------------------- */
+// Colors from 'Hotel Chevalier': http://wesandersonpalettes.tumblr.com/
+$cl-brown:  #baa18a;
+$cl-blue:   #c9d5d3;
+$cl-yellow: #fbc950;
+$cl-green:  #355243;
+
+$cl-bg:   lighten($cl-brown, 30%);
+$cl-text:  darken($cl-brown, 35%);
+
+
+/* = Layout
+ --------------------------------------------------------------------------- */
+html {
+	height: 100%;
+	background-color: $cl-bg;
+	color: $cl-text;
+	font-size: 87.5%; 
+	font-family: Georgia, Times, "Times New Roman", serif;
+	@include MQ(medium) { font-size: 100%; }
+}
+body {
+	background-color: #FCFCFC;
+	color: $cl-text;
+	padding: $base-line-rem; 
+	margin: $base-line-rem auto;
+	max-width: 60em;
+	@include MQ(medium) { padding: $base-line-rem*2; }
+	@include MQ(wide) { padding: $base-line-rem*4; }
+}
+
+// Vertical Rhytm fixes
+[role="header"],
+[role="navigation"],
+[role="main"],
+[role="complementary"],
+[role="contentinfo"] {
+	@extend %mg-base-line;
+}
+
+/* = Typography
+ --------------------------------------------------------------------------- */
+
+// Constrain line-widths ('measure') on wider screens
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, 
+p {
+	@include MQ('medium') {
+		max-width: 33em;
+	}
+}
+
+// Hyperlinks
+a {
+	color: $cl-brown;
+	&:hover, &:focus, &:active {
+		color: $cl-yellow;
+	}
+}
+
+.btn {
+	background-color: $cl-brown;
+	border-color: darken($cl-brown, 8%);
+	&:hover, &:focus, &:active, &.is-active {
+		background-color: $cl-yellow;
+		border-color: darken($cl-yellow, 8%);
+	}
+}
+
+h1, .h1,
+h2, .h2 {
+	position: relative;
+	&:after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 7rem;
+		height: .0625em;
+		margin-bottom: -.125em;
+		background: $cl-brown;
+	}
+}
+h1, .h1 {
+	text-align: center;
+	&:after {
+		left: 50%;
+		margin-left: -3.5rem;
+	}
+}
+
+hr {
+	// width: 50%;
+	border-color: $cl-brown;
+	color: $cl-brown;
+	&:after {
+		content: "§";
+		display: inline-block;
+		font-size: 1.5rem;
+		line-height: 1;
+		text-align: center;
+		width: 1.5em;
+		background: #FCFCFC; // same as page bg color
+		position: relative;
+		left: 50%;
+		top: -.75rem;
+		margin-left: -.75em;
+	}
+}
+
+pre {
+	border-left: .5em solid $cl-blue;
+	margin-left: -$base-line-rem; padding-left: $base-line-rem;
+	@include MQ('medium') { margin-left: -$base-line-rem*2; padding-left: $base-line-rem*2; }
+	@include MQ('wide')   { margin-left: -$base-line-rem*4; padding-left: $base-line-rem*4; }
+}
+
+pre,
+code {
+	background-color: $cl-bg;
+	color: $cl-green;
+}
+
+ul, ol {
+}
+
+header > .intro { 
+	text-align: center;
+}

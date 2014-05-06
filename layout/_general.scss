@@ -15,12 +15,11 @@
 
 /* = Protect vertical rhytm and boxed layouts
  --------------------------------------------------------------------------- */
-// TODO: Test this well!
-
 // We almost never want the baseline bottom margin on :last-child
 //
+// TODO: Test this well!
 // This carpet bomb prevents huge selectors for all kinds of components etc
-:last-child { margin-bottom: 0 !important; }
+//:last-child { margin-bottom: 0 !important; }
 
 /* = Float Helpers
  --------------------------------------------------------------------------- */
