@@ -20,6 +20,7 @@ figure,
 }
 
 figure img,
+figcaption,
 .figure__caption {
 	display: block;
 }
@@ -27,9 +28,11 @@ figure img,
 .figure__img {}
 .figure__link {}
 
-figure, .figure, .figure__caption {
+figure, .figure,
+figcaption, .figure__caption {
 	@extend %mg-base-line;
 }
+figcaption,
 .figure__caption {
 	// @include rem(font-size,16px);
 	color: $cl-grey;

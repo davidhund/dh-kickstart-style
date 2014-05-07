@@ -128,6 +128,7 @@ hr {
 	}
 }
 
+figure,
 pre {
 	border-left: .5em solid $cl-blue;
 	margin-left: -$base-line-rem; padding-left: $base-line-rem;
@@ -146,4 +147,31 @@ ul, ol {
 
 header > .intro { 
 	text-align: center;
+}
+
+.hero {
+	background: $cl-blue;
+	color: $cl-white;
+	padding: $base-line-rem / 2 $base-line-rem; 
+	@extend %mg-base-line;
+	// Pull to flush sides
+	margin-left: -$base-line-rem; 
+	margin-right: -$base-line-rem; 
+	@include MQ(medium) { 
+		padding-left: $base-line-rem*2; 
+		padding-right: $base-line-rem*2; 
+		margin-left: -$base-line-rem*2; 
+		margin-right: -$base-line-rem*2; 
+	}
+	@include MQ(wide) {
+		padding-left: $base-line-rem*4; 
+		padding-right: $base-line-rem*4; 
+		margin-left: -$base-line-rem*4; 
+		margin-right: -$base-line-rem*4; 
+	}
+
+	h1, .h1,
+	h2, .h2 {
+		&:after { background: $cl-white; }
+	}
 }

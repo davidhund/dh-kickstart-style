@@ -79,8 +79,8 @@ $hn-scale: 1.333; // Perfect Fourth,
 // - Set as margin-bottom: in REM with PX fallback
 // ----------------------------------------------------------------------------
 // Round to px (26px) is neat but small rounding errors
-$base-line-px:              round( $ln-height * ($fs-base-px * 1px) );
-// Don't round to px (25.88848px) is nasty but no rounding errors
+// $base-line-px:              round( $ln-height * ($fs-base-px * 1px) );
+// .. Don't round to px (25.88848px) is nasty but no rounding errors
 $base-line-px:              $ln-height * ($fs-base-px * 1px);
 $base-line-rem:             $ln-height * 1rem;
 
@@ -92,9 +92,9 @@ $breakpoints: narrow $mq-narrow, medium $mq-medium, wide $mq-wide;
 
 // Padding / Margin
 $gutter:                    $fs-base-px*1px;       // PX: Default space between stuff
-$gridGutter:                $gutter/2;             // PX or "0" (will be converted to REM)
-$pd-default:                $base-line-px;                  // PX (will be converted to REM)
-$mg-default:                $base-line-px;            // PX (will be converted to REM)
+$gridGutter:                $gutter;               // PX or "0" (will be converted to REM)
+$pd-default:                $base-line-px;         // PX (will be converted to REM)
+$mg-default:                $base-line-px;         // PX (will be converted to REM)
 
 // Decoration
-$bd-radius:                 0; //2px;                   // Default border-radius
+$bd-radius:                 0; //2px;              // Default border-radius
