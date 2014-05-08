@@ -151,9 +151,6 @@ header > .intro {
 
 .hero {
 	background: $cl-blue;
-	color: $cl-white;
-	padding: $base-line-rem / 2 $base-line-rem; 
-	@extend %mg-base-line;
 	// Pull to flush sides
 	margin-left: -$base-line-rem; 
 	margin-right: -$base-line-rem; 
@@ -169,7 +166,7 @@ header > .intro {
 		margin-left: -$base-line-rem*4; 
 		margin-right: -$base-line-rem*4; 
 	}
-
+	// TODO: this needs checkin'
 	h1, .h1,
 	h2, .h2 {
 		&:after { background: $cl-white; }

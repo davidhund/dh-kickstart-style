@@ -1,0 +1,18 @@
+// ============================================================================
+//   HERO component
+//   --------------------------------------------------------------------------
+//   $name:        /src/scss/components/_hero.scss
+//   $author:      David Hund
+//
+//   $description: Generic HERO container, centering text, often with a bg (img)
+//
+//   $contents:
+//                 1  Hero container
+// ============================================================================
+
+.hero {
+	background: $cl-accent;
+	color: $cl-white;
+	padding: $base-line-rem / 2 $base-line-rem; 
+	@extend %mg-base-line;
+}
