@@ -15,23 +15,41 @@
 /* = Plain BlockQuote
  --------------------------------------------------------------------------- */
 blockquote {
-  // margin-left: 0;
-  // margin-right: 0;
+  position: relative;
+  font-size: 1.5em;
+  line-height: 2;
+  margin-left: 0;
+  margin-right: 0;
 
+  // Fancy Quotes
   & > p:before,
   & > p:after {
-    @extend %inline-block;
-    width: .2em;
-    font-family: arial, sans-serif;
-    font-size: 1.125em;
-    line-height: .5;
+    font-family: Georgia, Times, "Times New Roman", serif;
     font-style: normal;
-    font-weight: normal;
+    font-weight: bold;
   }
   & > p:before { content: "\201c"; }
   & > p:after { content: "\201d"; }
 
-  cite {
+  // No margin on last P
+  p:last-of-type { margin-bottom: 0; }
+
+  // Display the source, if any, onHover
+  &[cite]:hover:after {
+    content: attr(cite);
+    background: rgba(0,0,0,0.1);
+    color: $cl-white;
+    padding: 0 .5em;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  cite, .cite {
+    display: block;
+    font-size: 0.666em; // back to 1rem
+    line-height: $ln-height;
+    color: $cl-text-alt;
     // font-style: normal;
     // font-weight: bold;
   }
