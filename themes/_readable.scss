@@ -34,11 +34,27 @@ $cl-text:  darken($cl-brown, 35%);
  --------------------------------------------------------------------------- */
 html {
 	height: 100%;
-	background-color: $cl-bg;
+	// background-color: $cl-bg;
+	background-color: #FCFCFC;
 	color: $cl-text;
 	font-size: 87.5%; 
 	font-family: Georgia, Times, "Times New Roman", serif;
 	@include MQ(medium) { font-size: 100%; }
+
+	// Faux Border On <HTML>
+	height: auto;
+	&:before {
+		content: "";
+		display: block;
+		position: absolute;
+		top: 0; right: 0; bottom: 0; left: 0;
+		border: 1em solid $cl-blue;
+		// // Or fancy bg-image
+		// background-image: linear-gradient(100deg, $cl-bg, #FCFCFC 60%);
+		height: 100%;
+		z-index: -1;
+	}
+
 }
 body {
 	background-color: #FCFCFC;
@@ -99,6 +115,19 @@ h2, .h2 {
 		height: .0625em;
 		margin-bottom: -.125em;
 		background: $cl-brown;
+	}
+	// Hyperlinks in these headings
+	// - No underline
+	// - Inherit color
+	> a {
+		text-decoration: none;
+		color: $cl-text;
+		&:before {
+			content: "※ "; // TODO: proper 'link' icon?
+			font-size: .6em;
+			position: relative;
+			top: -.2em;
+		}
 	}
 }
 h1, .h1 {
