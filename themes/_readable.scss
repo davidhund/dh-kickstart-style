@@ -28,7 +28,7 @@ $cl-bg-alt: lighten($cl-accent, 30%);
  --------------------------------------------------------------------------- */
 html {
 	font-family: Georgia, Times, "Times New Roman", serif;
-
+	position: relative; // Fixes Faux Border
 	@include MQ(medium) {
 		// Faux Border On <HTML>
 		height: auto;
