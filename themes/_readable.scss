@@ -20,44 +20,31 @@
 
            This Theme CSS is merely to give _some_ basic theming styles
  --------------------------------------------------------------------------- */
-// Colors from 'Hotel Chevalier': http://wesandersonpalettes.tumblr.com/
-$cl-brown:  #baa18a;
-$cl-blue:   #c9d5d3;
-$cl-yellow: #fbc950;
 $cl-green:  #355243;
-
-$cl-bg:   lighten($cl-brown, 30%);
-$cl-text:  darken($cl-brown, 35%);
+$cl-bg-alt: lighten($cl-accent, 30%);
 
 
 /* = Layout
  --------------------------------------------------------------------------- */
 html {
-	height: 100%;
-	// background-color: $cl-bg;
-	background-color: #FCFCFC;
-	color: $cl-text;
-	font-size: 87.5%; 
 	font-family: Georgia, Times, "Times New Roman", serif;
-	@include MQ(medium) { font-size: 100%; }
 
-	// Faux Border On <HTML>
-	height: auto;
-	&:before {
-		content: "";
-		display: block;
-		position: absolute;
-		top: 0; right: 0; bottom: 0; left: 0;
-		border: 1em solid $cl-blue;
-		// // Or fancy bg-image
-		// background-image: linear-gradient(100deg, $cl-bg, #FCFCFC 60%);
-		height: 100%;
-		z-index: -1;
+	@include MQ(medium) {
+		// Faux Border On <HTML>
+		height: auto;
+		&:before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0; right: 0; bottom: 0; left: 0;
+			border: 1.5em solid $cl-accent2;
+			height: 100%;
+			z-index: -1;
+		}
 	}
-
 }
 body {
-	background-color: #FCFCFC;
+	background-color: $cl-bg;
 	color: $cl-text;
 	padding: $base-line-rem; 
 	margin: $base-line-rem auto;
@@ -70,8 +57,7 @@ body {
 [role="header"],
 [role="navigation"],
 [role="main"],
-[role="complementary"],
-[role="contentinfo"] {
+[role="complementary"] {
 	@extend %mg-base-line;
 }
 
@@ -82,25 +68,31 @@ body {
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, 
 p {
 	@include MQ('medium') {
-		max-width: 33em;
+		max-width: 36em;
 	}
 }
 
-// Hyperlinks
-a {
-	color: $cl-brown;
-	&:hover, &:focus, &:active {
-		color: $cl-yellow;
-	}
+.is-active a, 
+a.is-active { font-weight: bold; }
+
+.lnk-more,
+.lnk-back { text-decoration: none; }
+
+.lnk-more:after { content: " »"; }
+.lnk-back:before { content: "« "; }
+
+header .lnk-back {
+	color: $cl-border;
+	position: absolute;
+	top: $base-line-rem;
+	@include MQ(medium) { top: $base-line-rem*2; }
+	@include MQ(wide) { top: $base-line-rem*3; }
 }
 
-.btn {
-	background-color: $cl-brown;
-	border-color: darken($cl-brown, 8%);
-	&:hover, &:focus, &:active, &.is-active {
-		background-color: $cl-yellow;
-		border-color: darken($cl-yellow, 8%);
-	}
+.linklist li > a {
+	padding-left: 0;
+	padding-right: 0;
+	text-decoration: none;
 }
 
 h1, .h1,
@@ -114,7 +106,7 @@ h2, .h2 {
 		width: 7rem;
 		height: .0625em;
 		margin-bottom: -.125em;
-		background: $cl-brown;
+		background: $cl-accent;
 	}
 	// Hyperlinks in these headings
 	// - No underline
@@ -122,15 +114,9 @@ h2, .h2 {
 	> a {
 		text-decoration: none;
 		color: $cl-text;
-		&:before {
-			content: "※ "; // TODO: proper 'link' icon?
-			font-size: .6em;
-			position: relative;
-			top: -.2em;
-		}
 	}
 }
-h1, .h1 {
+h1.site-title {
 	text-align: center;
 	&:after {
 		left: 50%;
@@ -140,8 +126,8 @@ h1, .h1 {
 
 hr {
 	// width: 50%;
-	border-color: $cl-brown;
-	color: $cl-brown;
+	border-color: $cl-accent;
+	color: $cl-accent;
 	&:after {
 		content: "§";
 		display: inline-block;
@@ -149,7 +135,7 @@ hr {
 		line-height: 1;
 		text-align: center;
 		width: 1.5em;
-		background: #FCFCFC; // same as page bg color
+		background-color: $cl-bg;
 		position: relative;
 		left: 50%;
 		top: -.75rem;
@@ -159,15 +145,15 @@ hr {
 
 figure,
 pre {
-	border-left: .5em solid $cl-blue;
+	border-left: .5em solid $cl-accent2;
 	margin-left: -$base-line-rem; padding-left: $base-line-rem;
 	@include MQ('medium') { margin-left: -$base-line-rem*2; padding-left: $base-line-rem*2; }
-	@include MQ('wide')   { margin-left: -$base-line-rem*4; padding-left: $base-line-rem*4; }
+	@include MQ('wide')   { margin-left: 0; padding-left: $base-line-rem; }
 }
 
 pre,
 code {
-	background-color: $cl-bg;
+	background-color: $cl-bg-alt;
 	color: $cl-green;
 }
 
@@ -179,7 +165,7 @@ header > .intro {
 }
 
 .hero {
-	background: $cl-blue;
+	background: $cl-accent2;
 	// Pull to flush sides
 	margin-left: -$base-line-rem; 
 	margin-right: -$base-line-rem; 
@@ -200,4 +186,69 @@ header > .intro {
 	h2, .h2 {
 		&:after { background: $cl-white; }
 	}
+}
+
+footer[role="contentinfo"] {
+
+	border-top: 1px solid $cl-accent;
+	color: $cl-accent;
+	margin-top: $base-line-rem*2;
+	&:before {
+		content: "§";
+		display: inline-block;
+		font-size: 1.5rem;
+		line-height: 1;
+		text-align: center;
+		width: 1.5em;
+		background-color: $cl-bg;
+		position: relative;
+		left: 50%;
+		margin-left: -.75em;
+		top: -.75rem;
+	}
+
+	address { display: inline; }
+	small {
+		font-size: 1em;
+		line-height: $ln-height;
+		color: $cl-text;
+	}
+
+	.media__img img {
+		max-width: 100px;
+		border: .25em solid $cl-bg-alt;
+	}
+
+	.l-1of2 {
+		width: 100% !important;
+		@include MQ(medium) { width: 50% !important; }
+	}
+
+
+}
+
+.vcard { line-height: $ln-height; }
+.hentry__meta {
+	color: $cl-green;
+}
+.post-author,
+.post-cat {
+	display: inline-block;
+	font-weight: normal;
+	line-height: 1;
+	padding-left: .5em;
+	margin-left: .5em;
+	border-left: 1px solid $cl-border;
+}
+.post-author:before { content: "By "; }
+.hentry--spotlight {
+	margin-top: $base-line-rem*2;
+	@include MQ(medium) { 
+		background: lighten($cl-bg-alt, 4%);
+		padding: $base-line-rem;
+		border: 1px solid $cl-bg-alt;
+		p { font-size: 1.5em; }
+	}
+}
+.l-secondary--shade {
 }

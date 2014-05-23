@@ -9,7 +9,7 @@
 // ============================================================================
 
 /* = 
- --------------------------------------------------------------------------- */
+--------------------------------------------------------------------------- */
 // @media print {
 * {
     background: transparent !important;
@@ -32,8 +32,8 @@ abbr[title]:after {
 }
 
 /*
- * Don't show links for images, or javascript/internal links
- */
+* Don't show links for images, or javascript/internal links
+*/
 
 a[href^="javascript:"]:after,
 a[href^="#"]:after {

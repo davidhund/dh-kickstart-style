@@ -27,8 +27,8 @@ $modifiers-extend: false;                          // [default:false] - Use 2 cl
 // = ACCENT (Site-Specific) COLORS
 //   Change These: try not to change the others
 // ----------------------------------------------------------------------------
-$cl-accent:                 #9DBCBC;
-$cl-accent2:                #ADE0DB;
+$cl-accent:                 #baa18a; // Brown
+$cl-accent2:                #c9d5d3; // Blueish
 
 // = Colors
 // ----------------------------------------------------------------------------
@@ -39,9 +39,9 @@ $cl-grey:                   #999;
 $cl-darkgrey:             	#666;
 
 // Other colors
-$cl-border:                 $cl-grey;
-$cl-bg:                     $cl-lightgrey;         // Base Background color
-$cl-text:                   $cl-black;             // Base Text color
+$cl-border:                 $cl-accent;
+$cl-bg:                     #FCFCFC;               // Base Background color
+$cl-text:                   darken($cl-accent, 35%); // Base Text color
 $cl-text-alt:               lighten($cl-text,50%); // Alternative, lighter, Text color
 $cl-text-select:            inherit;               // Selected Text color
 $cl-text-select-background: $cl-lightgrey;         // Selected Text color Background
@@ -51,8 +51,8 @@ $cl-chrome-text:            rgba(255,255,255,0.9); // Chrome (header/footer) Tex
 $cl-chrome-link:            rgba(255,255,255,0.8); // Chrome (header/footer) Link color
 
 // Hyperlink Colors
-$cl-link:                   #1E90FF;
-$cl-link-hover:             #FF901E;
+$cl-link:                   #355243;
+$cl-link-hover:             $cl-accent;
 
 // = Font Stacks
 // ----------------------------------------------------------------------------
@@ -83,6 +83,7 @@ $hn-scale: 1.333; // Perfect Fourth,
 // .. Don't round to px (25.88848px) is nasty but no rounding errors
 $base-line-px:              $ln-height * ($fs-base-px * 1px);
 $base-line-rem:             $ln-height * 1rem;
+@if $oldIE == true { $base-line-rem: $base-line-px; }
 
 // Breakpoints (Media Query min-width)
 $mq-narrow: 30em;                                  // ~ 480px
@@ -97,4 +98,4 @@ $pd-default:                $base-line-px;         // PX (will be converted to R
 $mg-default:                $base-line-px;         // PX (will be converted to REM)
 
 // Decoration
-$bd-radius:                 0; //2px;              // Default border-radius
+$bd-radius:                 .125em; //2px;              // Default border-radius
